@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/nav_drawer.dart';
+import 'package:moodle/widgets/nav_drawer.dart';
+import 'package:moodle/constants.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -8,28 +9,27 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
+        backgroundColor: moodleWhite,
+        foregroundColor: moodleTextDark,
         elevation: 1,
         titleSpacing: 0,
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              // Custom Moodle-like Logo Symbol
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 width: 32,
                 height: 32,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF0075FF), // Blue icon color
-                  borderRadius: BorderRadius.circular(6),
+                decoration: const BoxDecoration(
+                  color: moodleBlue,
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
                 child: const Center(
                   child: Text(
                     'm',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: moodleWhite,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -59,10 +59,10 @@ class DashboardView extends StatelessWidget {
           const SizedBox(width: 8),
           const CircleAvatar(
             radius: 18,
-            backgroundColor: Color(0xFFE9ECEF),
-            foregroundColor: Color(0xFF5D2D5F),
+            backgroundColor: moodleGrayBg,
+            foregroundColor: moodlePurple,
             child: Text(
-              'YH', // Initials: Students must change this to their actual initials
+              'YH',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
             ),
           ),
@@ -71,31 +71,29 @@ class DashboardView extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        color: const Color(0xFFF2F2F2), // Moodle off-white background
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+        color: moodleBg,
+        child: const SingleChildScrollView(
+          padding: EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
+              Text(
                 'Dashboard',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5D2D5F),
+                  color: moodlePurple,
                 ),
               ),
-              const SizedBox(height: 24),
-
-              // Placeholder block 1
+              SizedBox(height: 24),
               Card(
-                color: Colors.white,
+                color: moodleWhite,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.grey[300]!),
-                  borderRadius: BorderRadius.circular(8),
+                  side: BorderSide(color: moodleBorder),
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(24.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,29 +103,27 @@ class DashboardView extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF5D2D5F),
+                          color: moodlePurple,
                         ),
                       ),
                       SizedBox(height: 12),
                       Text(
                         'This is a placeholder block.',
-                        style: TextStyle(fontSize: 14, color: Colors.black54),
+                        style: TextStyle(fontSize: 14, color: moodleTextMuted),
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
-
-              // Placeholder block 2
+              SizedBox(height: 24),
               Card(
-                color: Colors.white,
+                color: moodleWhite,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.grey[300]!),
-                  borderRadius: BorderRadius.circular(8),
+                  side: BorderSide(color: moodleBorder),
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(24.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,13 +133,13 @@ class DashboardView extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF5D2D5F),
+                          color: moodlePurple,
                         ),
                       ),
                       SizedBox(height: 12),
                       Text(
                         'This is a placeholder block.',
-                        style: TextStyle(fontSize: 14, color: Colors.black54),
+                        style: TextStyle(fontSize: 14, color: moodleTextMuted),
                       ),
                     ],
                   ),

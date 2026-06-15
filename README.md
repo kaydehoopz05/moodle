@@ -1,6 +1,6 @@
 # Moodle — Coursework Template
 
-This repository contains the starting template code for the virtual learning environment (referral/deferral) coursework.
+This repository contains the starting template code for the Moodle (referral/deferral) coursework for the Flutter part of PAPL and UXDI modules.
 
 ---
 
@@ -51,11 +51,13 @@ If you do not get these pop-ups, go to the extensions tab on the left side of th
 - Open the [lib/widgets/nav_drawer.dart](lib/widgets/nav_drawer.dart) file.
 - Replace `"Yourname Here"` with your actual name.
 - Replace `"up1234567"` with your actual UP identification number.
-- Save the file.
+- Save the file and commit your change as shown below:
+
+![Step 3: Committing Changes](images/step3_commit.png)
 
 ### Step 4: Run the Application
 
-Open the integrated terminal in VS Code (Terminal → New Terminal) and run the following commands to fetch dependencies and run the app in Chrome:
+Set the target device from the status bar of VS Code to Chrome or Edge. Alternatively, in the integrated terminal of VS Code, run the following commands to fetch dependencies and run the app in Chrome:
 
 ```bash
 flutter pub get
@@ -66,25 +68,36 @@ flutter run -d chrome
 
 The application will build and open in a new Chrome browser window, displaying the Dashboard.
 
-![Step 4.2: Running Application in Chrome](images/step4_running.png)
-
 ### Step 5: Emulate Mobile Layout in DevTools
 
 To view the responsive layout and test your application:
 - Press `F12` (or right-click anywhere and select **Inspect**) in Chrome to open Developer Tools.
 - Click the **Toggle Device Toolbar** icon (or press `Ctrl+Shift+M` / `Cmd+Shift+M`) to emulate a mobile screen.
+- From the left-hand side dropdown, select an iPhone (e.g., iPhone 12 Pro) to emulate a mobile layout. See the screenshot below for reference.
 
 ![Step 5.1: Opening Chrome Developer Tools](images/step5_devtools_open.png)
 
-You will see the layout adapt, allowing you to open the sidebar navigation drawer via the hamburger menu icon.
-
-![Step 5.2: Emulating Mobile Layout](images/step5_devtools.png)
+Remember your application must be designed for mobile devices first (we may not even run your submission on desktop layout during the demo).
 
 ---
 
-## Coursework Assessment
+## How you will be assessed
 
-For full details on the marking scheme (Software Development Practices: 25%, Application Functionality: 30%) and booking your live grading demonstration, check the module page.
+You will be marked during a live demo where you are quizzed on your development process and decisions. So make sure you are familiar with your own submission. Note that submitting a work that you do not understand is an academic offence and can result to a fail in the module.
 
-- **Booking Link:** [Book a Demo Session](https://bookings.cloud.microsoft/bookwithme/user/e0acc34f2ca040b295fb20cfce7425a2%40port.ac.uk/meetingtype/qZuY5y_IuUimqFEq4d1oDA2?anonymous&ismsaljsauthenabled)
+Book the demo as soon as possible using the link below. Do not leave it until the last minute as the slots fill up quickly!
+
+[Book a Demo Session](https://bookings.cloud.microsoft/bookwithme/user/e0acc34f2ca040b295fb20cfce7425a2%40port.ac.uk/meetingtype/qZuY5y_IuUimqFEq4d1oDA2?anonymous&ismsaljsauthenabled)
+
+## Key Dates
+
 - **Submission Deadline:** Wednesday 29th July 2026 at 13:00 (Late window ends Friday 31st July 2026 at 13:00)
+- **Deadline for Demo:** The latest date you can do your demo is Monday the 3rd of August 2026.
+
+---
+
+## Support
+
+If you have questions or encounter issues while working on this coursework, use [the dedicated Discord channel](https://portdotacdotuk-my.sharepoint.com/:b:/g/personal/mani_ghahremani_port_ac_uk/EbX583gvURRAhqsnhYqmbSEBwIFw6tXRyz_Br1GxIyE8dg) to ask for help. Before posting a new question, check the existing posts to see if your question has already been answered. You can also attend your timetabled practical sessions to get face-to-face support from teaching staff.
+
+If you are facing external extenuating circumstances that are affecting your ability to complete this coursework, you should submit an [Extenuating Circumstances Form](https://myport.port.ac.uk/my-course/exams/extenuating-circumstances) as soon as possible. You are also welcome to contact me on Discord for additional support without needing to disclose the private details of your situation.

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodle/constants.dart';
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({Key? key}) : super(key: key);
@@ -6,16 +7,18 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name ?? '/';
+    final bool isDashboard = currentRoute == '/';
+    final bool isCourses = currentRoute == '/courses';
 
     return Drawer(
-      backgroundColor: const Color(0xFF5D2D5F), // Deep purple side panel
+      backgroundColor: moodlePurple,
       child: SafeArea(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF4A204C), // Slightly darker purple header
+                color: moodleDarkPurple,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,20 +26,20 @@ class NavDrawer extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 26,
-                    backgroundColor: Colors.white,
-                    child: Icon(Icons.person, size: 30, color: Color(0xFF5D2D5F)),
+                    backgroundColor: moodleWhite,
+                    child: Icon(Icons.person, size: 30, color: moodlePurple),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'Yourname Here', // Student placeholder name
+                    'Yourname Here',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: moodleWhite,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
                   Text(
-                    'up1234567@myport.ac.uk', // Student placeholder email
+                    'up1234567@myport.ac.uk',
                     style: TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
@@ -46,51 +49,51 @@ class NavDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.speed_outlined, color: Colors.white),
+              leading: const Icon(Icons.speed_outlined, color: moodleWhite),
               title: const Text(
                 'Dashboard',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: moodleWhite, fontSize: 16),
               ),
-              selected: currentRoute == '/',
+              selected: isDashboard,
               selectedTileColor: Colors.white24,
               onTap: () {
-                Navigator.pop(context); // Close drawer
-                if (currentRoute != '/') {
+                Navigator.pop(context);
+                if (!isDashboard) {
                   Navigator.pushReplacementNamed(context, '/');
                 }
               },
             ),
             ListTile(
-              leading: const Icon(Icons.calendar_month_outlined, color: Colors.white),
+              leading: const Icon(Icons.calendar_month_outlined, color: moodleWhite),
               title: const Text(
                 'Calendar',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: moodleWhite, fontSize: 16),
               ),
               onTap: () {
-                // Disabled link for student brief template
+                // placeholder
               },
             ),
             ListTile(
-              leading: const Icon(Icons.insert_drive_file_outlined, color: Colors.white),
+              leading: const Icon(Icons.insert_drive_file_outlined, color: moodleWhite),
               title: const Text(
                 'Private files',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: moodleWhite, fontSize: 16),
               ),
               onTap: () {
-                // Disabled link for student brief template
+                // placeholder
               },
             ),
             ListTile(
-              leading: const Icon(Icons.school_outlined, color: Colors.white),
+              leading: const Icon(Icons.school_outlined, color: moodleWhite),
               title: const Text(
                 'My courses',
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: moodleWhite, fontSize: 16),
               ),
-              selected: currentRoute == '/courses',
+              selected: isCourses,
               selectedTileColor: Colors.white24,
               onTap: () {
-                Navigator.pop(context); // Close drawer
-                if (currentRoute != '/courses') {
+                Navigator.pop(context);
+                if (!isCourses) {
                   Navigator.pushReplacementNamed(context, '/courses');
                 }
               },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/nav_drawer.dart';
+import 'package:moodle/widgets/nav_drawer.dart';
+import 'package:moodle/constants.dart';
 
 class CoursesView extends StatelessWidget {
   const CoursesView({Key? key}) : super(key: key);
@@ -8,28 +9,27 @@ class CoursesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
+        backgroundColor: moodleWhite,
+        foregroundColor: moodleTextDark,
         elevation: 1,
         titleSpacing: 0,
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              // Custom Moodle-like Logo Symbol
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 width: 32,
                 height: 32,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF0075FF), // Blue icon color
-                  borderRadius: BorderRadius.circular(6),
+                decoration: const BoxDecoration(
+                  color: moodleBlue,
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
                 child: const Center(
                   child: Text(
                     'm',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: moodleWhite,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
@@ -59,10 +59,10 @@ class CoursesView extends StatelessWidget {
           const SizedBox(width: 8),
           const CircleAvatar(
             radius: 18,
-            backgroundColor: Color(0xFFE9ECEF),
-            foregroundColor: Color(0xFF5D2D5F),
+            backgroundColor: moodleGrayBg,
+            foregroundColor: moodlePurple,
             child: Text(
-              'YH', // Initials: Students must change this to their actual initials
+              'YH',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
             ),
           ),
@@ -71,7 +71,7 @@ class CoursesView extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        color: const Color(0xFFF2F2F2), // Moodle off-white background
+        color: moodleBg,
         child: const SingleChildScrollView(
           padding: EdgeInsets.all(24.0),
           child: Column(
@@ -82,13 +82,13 @@ class CoursesView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF5D2D5F),
+                  color: moodlePurple,
                 ),
               ),
               SizedBox(height: 24),
               Text(
                 'This is the courses overview page.',
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+                style: TextStyle(fontSize: 16, color: moodleTextDark),
               ),
             ],
           ),

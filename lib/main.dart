@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'views/dashboard_view.dart';
-import 'views/courses_view.dart';
+import 'package:moodle/views/dashboard_view.dart';
+import 'package:moodle/views/courses_view.dart';
+import 'package:moodle/constants.dart';
 
 void main() {
   runApp(const MoodleApp());
@@ -16,10 +17,10 @@ class MoodleApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF5D2D5F), // Moodle burgundy/deep purple
-          primary: const Color(0xFF5D2D5F),
-          secondary: const Color(0xFF4A4A4A),
-          surface: const Color(0xFFF8F9FA),
+          seedColor: moodlePurple,
+          primary: moodlePurple,
+          secondary: moodleSecondary,
+          surface: moodleSurface,
         ),
       ),
       initialRoute: '/',
