@@ -1,12 +1,27 @@
-## Moodle — Flutter Coursework
+# Moodle — Flutter Coursework
 
-### Overview
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Fork and Clone the Repository](#fork-and-clone-the-repository)
+- [Marking Criteria](#marking-criteria)
+  - [Application Marks (75%)](#application-marks-75)
+  - [Software Development Practices Marks (25%)](#software-development-practices-marks-25)
+- [Submission and Demonstration](#submission-and-demonstration)
+
+---
+
+## Overview
 
 Your task is to recreate a mobile-optimised version of the Moodle platform using Flutter. You must not start from scratch, as you need to begin by forking the GitHub repository that contains the incomplete template code. [The getting started section of this document](#getting-started) will explain more. Once you have completed the application, you will submit the link to your forked repository on Moodle for assessment and demonstrate your application on an online meeting, which you need to book using [this link](https://outlook.office.com/bookwithme/user/e0acc34f2ca040b295fb20cfce7425a2@port.ac.uk/meetingtype/qZuY5y_IuUimqFEq4d1oDA2?anonymous&ismsaljsauthenabled&ep=mlink). See the submission and demonstration sections for more information.
 
-### Getting Started
+---
 
-#### Prerequisites:
+## Getting Started
+
+### Prerequisites
 
 ***You must already have a GitHub account to be able to start this coursework. If you have not done so, read and complete the exercises in [worksheet 0](https://manighahrmani.github.io/sandwich_shop/worksheet-0.html) before continuing.***
 
@@ -14,9 +29,9 @@ Your task is to recreate a mobile-optimised version of the Moodle platform using
 
 ⚠️ If you do not own a high-spec computer, you can either use the university's machines (see the “Remote access to University computers” section of [the Study Anywhere document linked here](https://myport.port.ac.uk/it-support/student-it-support/study-anywhere)) or use [Firebase Studio](https://firebase.studio/). More details are in [worksheet 1](https://manighahrmani.github.io/sandwich_shop/worksheet-1.html).
 
-#### Fork and Clone the Repository:
+### Fork and Clone the Repository
 
-##### Step 1: Fork the Repository
+#### Step 1: Fork the Repository
 
 Click the Fork button in the top right corner of [this page](https://github.com/manighahrmani/moodle/) to create your public copy of the repository. Or just head directly to this link: [https://github.com/manighahrmani/moodle/fork](https://github.com/manighahrmani/moodle/fork)
 
@@ -26,7 +41,7 @@ Do not change anything on the Create fork page. You should then get a public for
 
 ![Step 1.2: Forking the Repository](images/step1_fork_page.png)
 
-##### Step 2: Clone and Open in VS Code
+#### Step 2: Clone and Open in VS Code
 
 Open VS Code and click the Clone Repository button in the Source Control panel on the left side of the screen. Open your editor and clone this repository from the source control panel on the left. Alternatively, open the command palette with Ctrl+Shift+P or Cmd+Shift+P and enter “Git: Clone”.
 
@@ -44,7 +59,7 @@ If you do not get these pop-ups, go to the extensions tab on the left side of th
 
 ![Step 2.4: Installing Flutter Extension and Running pub get](images/step2_install_alternative.png)
 
-##### Step 3: Complete First Setup Task
+#### Step 3: Complete First Setup Task
 
 ***Open the lib/widgets/nav_drawer.dart file.***
 
@@ -56,7 +71,7 @@ If you do not get these pop-ups, go to the extensions tab on the left side of th
 
 ![Step 3: Complete First Setup Task](images/step3_commit.png)
 
-##### Step 4: Run the Application
+#### Step 4: Run the Application
 
 ```bash
 flutter pub get
@@ -69,7 +84,7 @@ Alternatively, click on the run button in the `main.dart` as shown below and mak
 
 The application will build and open in a new Chrome browser window, displaying the Dashboard.
 
-##### Step 5: Emulate Mobile Layout in DevTools
+#### Step 5: Emulate Mobile Layout in DevTools
 
 To view the responsive layout and test your application:
 

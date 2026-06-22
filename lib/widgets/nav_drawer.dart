@@ -73,16 +73,7 @@ class NavDrawer extends StatelessWidget {
                 // placeholder
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.insert_drive_file_outlined, color: moodleWhite),
-              title: const Text(
-                'Private files',
-                style: TextStyle(color: moodleWhite, fontSize: 16),
-              ),
-              onTap: () {
-                // placeholder
-              },
-            ),
+
             ListTile(
               leading: const Icon(Icons.school_outlined, color: moodleWhite),
               title: const Text(

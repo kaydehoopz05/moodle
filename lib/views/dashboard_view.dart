@@ -21,19 +21,9 @@ class DashboardView extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 width: 32,
                 height: 32,
-                decoration: const BoxDecoration(
-                  color: moodleBlue,
-                  borderRadius: BorderRadius.all(Radius.circular(6)),
-                ),
-                child: const Center(
-                  child: Text(
-                    'm',
-                    style: TextStyle(
-                      color: moodleWhite,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
+                child: Image.asset(
+                  'images/moodle_logo.png',
+                  fit: BoxFit.contain,
                 ),
               ),
               const Text(
