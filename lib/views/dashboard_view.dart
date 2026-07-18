@@ -89,7 +89,7 @@ class DashboardView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Feature Placeholder 1',
+                        'Search',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
