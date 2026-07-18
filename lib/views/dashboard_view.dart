@@ -96,11 +96,17 @@ class DashboardView extends StatelessWidget {
                           color: moodlePurple,
                         ),
                       ),
-                      SizedBox(height: 12),
-                      Text(
-                        'This is a placeholder block.',
-                        style: TextStyle(fontSize: 14, color: moodleTextMuted),
-                      ),
+                      SearchBar(
+                            constraints: BoxConstraints(
+                              minHeight: 40,
+                              maxHeight: 40,
+                              ),
+                          shape: WidgetStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                              ),
+                            ),
+                      )
                     ],
                   ),
                 ),
