@@ -62,12 +62,12 @@ class DashboardView extends StatelessWidget {
       drawer: const NavDrawer(),
       body: Container(
         color: moodleBg,
-        child: const SingleChildScrollView(
-          padding: EdgeInsets.all(24.0),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Dashboard',
                 style: TextStyle(
                   fontSize: 28,
@@ -75,20 +75,20 @@ class DashboardView extends StatelessWidget {
                   color: moodlePurple,
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Card(
                 color: moodleWhite,
                 elevation: 0,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   side: BorderSide(color: moodleBorder),
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(24.0),
+                  padding: const EdgeInsets.all(24.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Search',
                         style: TextStyle(
                           fontSize: 18,
@@ -96,31 +96,57 @@ class DashboardView extends StatelessWidget {
                           color: moodlePurple,
                         ),
                       ),
-                      SizedBox(
-                        width: 320,
-                        child: SearchBar(
-                          hintText: 'search all courses and modules',
-                          constraints:  BoxConstraints(
-                            minHeight: 40,
-                            maxHeight: 40,
-                          ),
-                          backgroundColor:  WidgetStatePropertyAll<Color>(
-                            Colors.white,
-                          ),
-                          shape:  WidgetStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              side: BorderSide(color: moodleBorder),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'search all courses and modules',
+                                prefixIcon: const Icon(Icons.search, size: 18),
+                                filled: true,
+                                fillColor: Colors.white,
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(color: moodleBorder),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(color: moodleBorder),
+                                ),
+                                focusedBorder:  OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: const BorderSide(color: moodlePurple),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          const SizedBox(width: 12),
+                          SizedBox(
+                            height: 48,
+                            child: ElevatedButton.icon(
+                              onPressed: () {},
+                              icon:  const Icon(Icons.search, size: 18),
+                              label:  const Text('Search'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: moodlePurple,
+                                foregroundColor: Colors.white,
+                                elevation: 0,
+                                padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 24),
-              Card(
+              const SizedBox(height: 24),
+              const Card(
                 color: moodleWhite,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
