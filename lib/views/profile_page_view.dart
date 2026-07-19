@@ -41,7 +41,11 @@ class ProfilePageView extends StatelessWidget {
                 },
                 child: const Text(
                   'Dashboard',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: moodlePurple,
+                  ),
                 ),
               ),
             ],
