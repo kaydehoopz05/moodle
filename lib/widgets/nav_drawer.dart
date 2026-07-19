@@ -64,6 +64,20 @@ class NavDrawer extends StatelessWidget {
                 }
               },
             ),
+                        _DrawerItem(
+              icon: Icons.calendar_month_outlined,
+              label: 'Calendar',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+                        _DrawerItem(
+              icon: Icons.grade_outlined,
+              label: 'Private files',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
             _DrawerItem(
               icon: Icons.school_outlined,
               label: 'My courses',
@@ -73,27 +87,6 @@ class NavDrawer extends StatelessWidget {
                 if (!isCourses) {
                   Navigator.pushReplacementNamed(context, '/courses');
                 }
-              },
-            ),
-            _DrawerItem(
-              icon: Icons.calendar_month_outlined,
-              label: 'Calendar',
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            _DrawerItem(
-              icon: Icons.grade_outlined,
-              label: 'Grades',
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            _DrawerItem(
-              icon: Icons.mail_outline,
-              label: 'Messages',
-              onTap: () {
-                Navigator.pop(context);
               },
             ),
           ],
