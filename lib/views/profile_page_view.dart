@@ -54,14 +54,19 @@ class ProfilePageView extends StatelessWidget {
             icon: const Icon(Icons.chat_bubble_outline),
             onPressed: () {},
           ),
-          const SizedBox(width: 8),
-          const CircleAvatar(
-            radius: 18,
-            backgroundColor: moodleGrayBg,
-            foregroundColor: moodlePurple,
-            child: Text(
-              'YH',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+          
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: const CircleAvatar(
+              radius: 18,
+              backgroundColor: moodleGrayBg,
+              foregroundColor: moodlePurple,
+              child: Text(
+                'YH',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
             ),
           ),
           const SizedBox(width: 16),
