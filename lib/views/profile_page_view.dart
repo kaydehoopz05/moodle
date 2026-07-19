@@ -17,15 +17,23 @@ class ProfilePageView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                width: 32,
-                height: 32,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: moodleGrayBg,
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Image.asset(
                   'images/moodle_logo.png',
                   fit: BoxFit.contain,
                 ),
               ),
+            ),
               const Text(
                 'Profile',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
