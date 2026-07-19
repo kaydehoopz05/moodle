@@ -357,7 +357,7 @@ class DashboardView extends StatelessWidget {
                                     ),
                                     items: const [
                                       DropdownMenuItem(value: 'Sort by dates', child: Text('Sort by dates')),
-                                      DropdownMenuItem(value: 'Sort byb courses', child: Text('Sort by courses')),
+                                      DropdownMenuItem(value: 'Sort by courses', child: Text('Sort by courses')),
                                     ],
                                     onChanged: (_) {},
                                   ),
@@ -388,7 +388,49 @@ class DashboardView extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                            )
+                            ),
+                    const SizedBox(height: 20),
+                      const Text(
+                        'Tuesday 28th July',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: moodlePurple,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: moodleWhite,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: moodleBorder),
+                        ),
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                             Text(
+                              'Upcoming activity',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: moodlePurple,
+                              ),
+                            ),
+                             SizedBox(height: 8),
+                             Text(
+                              'Assignment: Research Methods draft',
+                              style: TextStyle(fontSize: 14, color: moodleTextDark),
+                            ),
+                             SizedBox(height: 4),
+                            Text(
+                              'Due 23:59 • 2 submissions pending',
+                              style: TextStyle(fontSize: 13, color: moodleTextMuted),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
