@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
 
@@ -34,9 +35,14 @@ class ProfilePageView extends StatelessWidget {
                 ),
               ),
             ),
-              const Text(
-                'Profile',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/');
+                },
+                child: const Text(
+                  'Dashboard',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
               ),
             ],
           ),
@@ -71,15 +77,6 @@ class ProfilePageView extends StatelessWidget {
           ),
           const SizedBox(width: 16),
         ],
-      ),
-      drawerEdgeDragWidth:
-          MediaQuery.of(context).size.width * 0.2,
-      drawerEnableOpenDragGesture:
-          true,
-      drawer:
-          const NavDrawer(),
-      body: const Center(
-        child: Text('Profile Page Content'),
       ),
     );
   }
