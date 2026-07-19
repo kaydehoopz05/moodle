@@ -7,12 +7,14 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isCompact = MediaQuery.of(context).size.width <= 390;
-    final cardPadding = isCompact ? const EdgeInsets.all(16.0) : const EdgeInsets.all(24.0);
-    final headingSize = isCompact ? 24.0 : 28.0;
-    final sectionTitleSize = isCompact ? 16.0 : 18.0;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isCompact = constraints.maxWidth < 480;
+        final cardPadding = isCompact ? const EdgeInsets.all(16.0) : const EdgeInsets.all(24.0);
+        final headingSize = isCompact ? 24.0 : 28.0;
+        final sectionTitleSize = isCompact ? 16.0 : 18.0;
 
-    return Scaffold(
+        return Scaffold(
       appBar: AppBar(
         backgroundColor: moodleWhite,
         foregroundColor: moodleTextDark,
@@ -71,7 +73,10 @@ class DashboardView extends StatelessWidget {
       body: Container(
         color: moodleBg,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+          padding: EdgeInsets.symmetric(
+            horizontal: isCompact ? 16.0 : 24.0,
+            vertical: 24.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -422,6 +427,8 @@ class DashboardView extends StatelessWidget {
           ),
         ),
       ),
+        );
+      },
     );
   }
 }
