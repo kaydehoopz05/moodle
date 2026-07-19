@@ -220,7 +220,7 @@ class DashboardView extends StatelessWidget {
                                       child: SizedBox(
                                         height: 48,
                                         child: DropdownButtonFormField<String>(
-                                          initialValue: 'Next 30 days',
+                                          initialValue: 'All',
                                           decoration: InputDecoration(
                                             filled: true,
                                             fillColor: Colors.white,
@@ -240,7 +240,7 @@ class DashboardView extends StatelessWidget {
                                           ),
                                           items: const [
                                             DropdownMenuItem(value: 'All', child: Text('All')),
-                                            DropdownMenuItem(value: 'Overdue', child: Text('This week')),
+                                            DropdownMenuItem(value: 'This week', child: Text('This week')),
                                           ],
                                           onChanged: (_) {},
                                         ),
@@ -251,7 +251,7 @@ class DashboardView extends StatelessWidget {
                                       child: SizedBox(
                                         height: 48,
                                         child: DropdownButtonFormField<String>(
-                                          initialValue: 'Sort by dates',
+                                          initialValue: 'All courses',
                                           decoration: InputDecoration(
                                             filled: true,
                                             fillColor: Colors.white,
@@ -270,8 +270,8 @@ class DashboardView extends StatelessWidget {
                                             ),
                                           ),
                                           items: const [
-                                            DropdownMenuItem(value: 'Sort by dates', child: Text('Sort by dates')),
-                                            DropdownMenuItem(value: 'Sort by courses', child: Text('Sort by courses')),
+                                            DropdownMenuItem(value: 'All courses', child: Text('All courses')),
+                                            DropdownMenuItem(value: 'My courses', child: Text('My courses')),
                                           ],
                                           onChanged: (_) {},
                                         ),
@@ -282,7 +282,7 @@ class DashboardView extends StatelessWidget {
                                 const SizedBox(height: 12),
                                 TextField(
                                   decoration: InputDecoration(
-                                    hintText: 'Search activities',
+                                    hintText: 'Search activity type or name',
                                     prefixIcon: const Icon(Icons.search, size: 18),
                                     filled: true,
                                     fillColor: Colors.white,
@@ -308,7 +308,7 @@ class DashboardView extends StatelessWidget {
                                 Expanded(
                                   flex: 1,
                                   child: DropdownButtonFormField<String>(
-                                    initialValue: 'All',
+                                    initialValue: 'Next 30 days',
                                     decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
@@ -327,8 +327,8 @@ class DashboardView extends StatelessWidget {
                                       ),
                                     ),
                                     items: const [
-                                      DropdownMenuItem(value: 'All', child: Text('All')),
-                                      DropdownMenuItem(value: 'This week', child: Text('This week')),
+                                      DropdownMenuItem(value: 'Next 30 days', child: Text('Next 30 days')),
+                                      DropdownMenuItem(value: 'Overdue', child: Text('Overdue')),
                                     ],
                                     onChanged: (_) {},
                                   ),
@@ -337,7 +337,7 @@ class DashboardView extends StatelessWidget {
                                 Expanded(
                                   flex: 1,
                                   child: DropdownButtonFormField<String>(
-                                    initialValue: 'All courses',
+                                    initialValue: 'Sort by dates',
                                     decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
@@ -356,8 +356,8 @@ class DashboardView extends StatelessWidget {
                                       ),
                                     ),
                                     items: const [
-                                      DropdownMenuItem(value: 'All courses', child: Text('All courses')),
-                                      DropdownMenuItem(value: 'My courses', child: Text('My courses')),
+                                      DropdownMenuItem(value: 'Sort by dates', child: Text('Sort by dates')),
+                                      DropdownMenuItem(value: 'Sort byb courses', child: Text('Sort by courses')),
                                     ],
                                     onChanged: (_) {},
                                   ),
@@ -388,13 +388,7 @@ class DashboardView extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                            ),
-                      const SizedBox(height: 16),
-                      const Divider(
-                        color: moodleBorder,
-                        thickness: 1,
-                        height: 1,
-                      ),
+                            )
                     ],
                   ),
                 ),
