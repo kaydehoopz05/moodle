@@ -64,7 +64,7 @@ class ProfilePageView extends StatelessWidget {
               backgroundColor: moodleGrayBg,
               foregroundColor: moodlePurple,
               child: Text(
-                'YH',
+                'KD',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
