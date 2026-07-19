@@ -19,29 +19,45 @@ class DashboardView extends StatelessWidget {
         backgroundColor: moodleWhite,
         foregroundColor: moodleTextDark,
         elevation: 1,
+        toolbarHeight: 76,
         titleSpacing: 0,
-        title: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                width: 32,
-                height: 32,
-                child: Image.asset(
-                  'images/moodle_logo.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Text(
-                'Dashboard',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: isCompact ? 16 : 18,
-                ),
-              ),
-            ],
+        leadingWidth: 56,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () => Scaffold.of(context).openDrawer(),
           ),
+        ),
+        title: Row(
+          children: [
+            Container(
+              width: 34,
+              height: 34,
+              decoration: BoxDecoration(
+                color: moodleGrayBg,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.asset(
+                'images/moodle_logo.png',
+                fit: BoxFit.contain,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Dashboard',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: isCompact ? 16 : 18,
+                    color: moodlePurple,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         actions: [
           IconButton(
