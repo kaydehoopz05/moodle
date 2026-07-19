@@ -96,16 +96,24 @@ class DashboardView extends StatelessWidget {
                           color: moodlePurple,
                         ),
                       ),
-                      SearchBar(
-                            constraints: BoxConstraints(
-                              minHeight: 40,
-                              maxHeight: 40,
-                              ),
-                          shape: WidgetStatePropertyAll(
+                      SizedBox(
+                        width: 320,
+                        child: SearchBar(
+                          hintText: 'search all courses and modules',
+                          constraints:  BoxConstraints(
+                            minHeight: 40,
+                            maxHeight: 40,
+                          ),
+                          backgroundColor:  WidgetStatePropertyAll<Color>(
+                            Colors.white,
+                          ),
+                          shape:  WidgetStatePropertyAll(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                              ),
+                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              side: BorderSide(color: moodleBorder),
                             ),
+                          ),
+                        ),
                       )
                     ],
                   ),
