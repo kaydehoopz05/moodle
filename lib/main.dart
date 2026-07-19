@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moodle/views/dashboard_view.dart';
-import 'package:moodle/views/courses_view.dart';
 import 'package:moodle/constants.dart';
+import 'package:moodle/views/courses_view.dart';
+import 'package:moodle/views/dashboard_view.dart';
+import 'package:moodle/views/profile_page_view.dart';
 
 void main() {
   runApp(const MoodleApp());
@@ -27,6 +28,7 @@ class MoodleApp extends StatelessWidget {
       routes: {
         '/': (context) => const DashboardView(),
         '/courses': (context) => const CoursesView(),
+        '/profile': (context) => const ProfilePageView(),
       },
       debugShowCheckedModeBanner: false,
     );
