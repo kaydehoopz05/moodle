@@ -11,26 +11,29 @@ class NavDrawer extends StatelessWidget {
     final bool isCourses = currentRoute == '/courses';
 
     return Drawer(
-      backgroundColor: moodlePurple,
+      backgroundColor: moodleWhite,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.zero,
+      ),
       child: SafeArea(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: moodleDarkPurple,
+            Container(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+              decoration: const BoxDecoration(
+                color: moodlePurple,
               ),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   CircleAvatar(
-                    radius: 26,
+                    radius: 28,
                     backgroundColor: moodleWhite,
-                    child: Icon(Icons.person, size: 30, color: moodlePurple),
+                    child:  Icon(Icons.person, size: 30, color: moodlePurple),
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                   SizedBox(height: 12),
+                   Text(
                     'Yourname Here',
                     style: TextStyle(
                       color: moodleWhite,
@@ -38,7 +41,8 @@ class NavDrawer extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Text(
+                   SizedBox(height: 4),
+                   Text(
                     'up1234567@myport.ac.uk',
                     style: TextStyle(
                       color: Colors.white70,
@@ -48,14 +52,11 @@ class NavDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.speed_outlined, color: moodleWhite),
-              title: const Text(
-                'Dashboard',
-                style: TextStyle(color: moodleWhite, fontSize: 16),
-              ),
+            const SizedBox(height: 8),
+            _DrawerItem(
+              icon: Icons.dashboard_outlined,
+              label: 'Dashboard',
               selected: isDashboard,
-              selectedTileColor: Colors.white24,
               onTap: () {
                 Navigator.pop(context);
                 if (!isDashboard) {
@@ -63,25 +64,10 @@ class NavDrawer extends StatelessWidget {
                 }
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.calendar_month_outlined, color: moodleWhite),
-              title: const Text(
-                'Calendar',
-                style: TextStyle(color: moodleWhite, fontSize: 16),
-              ),
-              onTap: () {
-                // placeholder
-              },
-            ),
-
-            ListTile(
-              leading: const Icon(Icons.school_outlined, color: moodleWhite),
-              title: const Text(
-                'My courses',
-                style: TextStyle(color: moodleWhite, fontSize: 16),
-              ),
+            _DrawerItem(
+              icon: Icons.school_outlined,
+              label: 'My courses',
               selected: isCourses,
-              selectedTileColor: Colors.white24,
               onTap: () {
                 Navigator.pop(context);
                 if (!isCourses) {
@@ -89,9 +75,66 @@ class NavDrawer extends StatelessWidget {
                 }
               },
             ),
+            _DrawerItem(
+              icon: Icons.calendar_month_outlined,
+              label: 'Calendar',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _DrawerItem(
+              icon: Icons.grade_outlined,
+              label: 'Grades',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            _DrawerItem(
+              icon: Icons.mail_outline,
+              label: 'Messages',
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _DrawerItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const _DrawerItem({
+    required this.icon,
+    required this.label,
+    this.selected = false,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        color: selected ? moodlePurple : moodleTextDark,
+      ),
+      title: Text(
+        label,
+        style: TextStyle(
+          color: selected ? moodlePurple : moodleTextDark,
+          fontWeight: selected ? FontWeight.bold : FontWeight.w500,
+        ),
+      ),
+      selected: selected,
+      selectedTileColor: const Color(0xFFF2EFFF),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      onTap: onTap,
     );
   }
 }

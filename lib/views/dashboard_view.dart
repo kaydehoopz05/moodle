@@ -30,16 +30,21 @@ class DashboardView extends StatelessWidget {
         ),
         title: Row(
           children: [
-            Container(
-              width: 34,
-              height: 34,
-              decoration: BoxDecoration(
-                color: moodleGrayBg,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Image.asset(
-                'images/moodle_logo.png',
-                fit: BoxFit.contain,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: moodleGrayBg,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Image.asset(
+                  'images/moodle_logo.png',
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             const SizedBox(width: 10),
