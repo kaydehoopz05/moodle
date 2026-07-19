@@ -114,7 +114,7 @@ class DashboardView extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   borderSide: const BorderSide(color: moodleBorder),
                                 ),
-                                focusedBorder:  OutlineInputBorder(
+                                focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
                                   borderSide: const BorderSide(color: moodlePurple),
                                 ),
@@ -126,13 +126,13 @@ class DashboardView extends StatelessWidget {
                             height: 48,
                             child: ElevatedButton.icon(
                               onPressed: () {},
-                              icon:  const Icon(Icons.search, size: 18),
-                              label:  const Text('Search'),
+                              icon: const Icon(Icons.search, size: 18),
+                              label: const Text('Search'),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: moodlePurple,
                                 foregroundColor: Colors.white,
                                 elevation: 0,
-                                padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
@@ -140,6 +140,15 @@ class DashboardView extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'Timeline',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: moodlePurple,
+                        ),
                       )
                     ],
                   ),
