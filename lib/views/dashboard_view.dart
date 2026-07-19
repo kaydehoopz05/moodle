@@ -81,10 +81,7 @@ class DashboardView extends StatelessWidget {
           const SizedBox(width: 8),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePageView()),
-              );
+              Navigator.pushNamed(context, '/profile');
             },
             child: const CircleAvatar(
               radius: 18,
