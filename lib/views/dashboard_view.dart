@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
+import 'package:moodle/views/profile_page_view.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -78,13 +79,21 @@ class DashboardView extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(width: 8),
-          const CircleAvatar(
-            radius: 18,
-            backgroundColor: moodleGrayBg,
-            foregroundColor: moodlePurple,
-            child: Text(
-              'YH',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfilePageView()),
+              );
+            },
+            child: const CircleAvatar(
+              radius: 18,
+              backgroundColor: moodleGrayBg,
+              foregroundColor: moodlePurple,
+              child: Text(
+                'YH',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
             ),
           ),
           const SizedBox(width: 16),
