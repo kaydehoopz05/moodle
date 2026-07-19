@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
@@ -62,11 +60,11 @@ class ProfilePageView extends StatelessWidget {
         ],
       ),
       drawerEdgeDragWidth:
-          MediaQuery.of(context).size.width * 0.2, // Set the drag width here
+          MediaQuery.of(context).size.width * 0.2,
       drawerEnableOpenDragGesture:
-          true, // Enable or disable the drag gesture to open the drawer
+          true,
       drawer:
-          const NavDrawer(), // Use your custom navigation drawer widget here
+          const NavDrawer(),
       body: const Center(
         child: Text('Profile Page Content'),
       ),
