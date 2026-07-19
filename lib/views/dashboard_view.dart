@@ -4,8 +4,15 @@ import 'package:moodle/constants.dart';
 // ignore: unused_import
 import 'package:moodle/views/profile_page_view.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
+
+  @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
+  bool _isSearchExpanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,46 +37,84 @@ class DashboardView extends StatelessWidget {
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
-        title: Row(
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacementNamed(context, '/');
-              },
-              child: Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: moodleGrayBg,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Image.asset(
-                  'images/moodle_logo.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Dashboard',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: isCompact ? 16 : 18,
-                    color: moodlePurple,
+        title: _isSearchExpanded
+            ? SizedBox(
+                width: double.infinity,
+                child: TextField(
+                  autofocus: true,
+                  decoration: InputDecoration(
+                    hintText: 'Search courses, modules, or activities',
+                    prefixIcon: const Icon(Icons.search, size: 18),
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.close, size: 18),
+                      onPressed: () {
+                        setState(() {
+                          _isSearchExpanded = false;
+                        });
+                      },
+                    ),
+                    filled: true,
+                    fillColor: moodleBg,
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: moodleBorder),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: moodleBorder),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: moodlePurple),
+                    ),
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
+              )
+            : Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/');
+                    },
+                    child: Container(
+                      width: 34,
+                      height: 34,
+                      decoration: BoxDecoration(
+                        color: moodleGrayBg,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Image.asset(
+                        'images/moodle_logo.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Dashboard',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: isCompact ? 16 : 18,
+                          color: moodlePurple,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
         actions: [
           IconButton(
             icon: const Icon(Icons.search_outlined),
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                _isSearchExpanded = !_isSearchExpanded;
+              });
+            },
           ),
           IconButton(
             icon: const Icon(Icons.notifications_none_outlined),
