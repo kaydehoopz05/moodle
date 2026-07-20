@@ -27,7 +27,8 @@ void main() {
     await tester.tap(find.text('My courses'));
     await tester.pumpAndSettle();
 
-    // Verify Courses page contains title
-    expect(find.text('This is the courses overview page.'), findsOneWidget);
+    // Verify Courses page contains course and module information
+    expect(find.text('Computer Science 101'), findsOneWidget);
+    expect(find.text('Programming Fundamentals'), findsOneWidget);
   });
 }
