@@ -43,21 +43,65 @@ class CoursesView extends StatelessWidget {
         backgroundColor: moodleWhite,
         foregroundColor: moodleTextDark,
         elevation: 1,
+        toolbarHeight: 76,
         titleSpacing: 0,
+        leadingWidth: 56,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         title: Row(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              width: 32,
-              height: 32,
-              child: Image.asset(
-                'images/moodle_logo.png',
-                fit: BoxFit.contain,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: Container(
+                width: 34,
+                height: 34,
+                decoration: BoxDecoration(
+                  color: moodleGrayBg,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Image.asset(
+                  'images/moodle_logo.png',
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
-            const Text(
-              'My courses',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            const SizedBox(width: 10),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/');
+                  },
+                  child: const Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/courses');
+                  },
+                  child: const Text(
+                    'My Courses',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -75,13 +119,18 @@ class CoursesView extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(width: 8),
-          const CircleAvatar(
-            radius: 18,
-            backgroundColor: moodleGrayBg,
-            foregroundColor: moodlePurple,
-            child: Text(
-              'YH',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: const CircleAvatar(
+              radius: 18,
+              backgroundColor: moodleGrayBg,
+              foregroundColor: moodlePurple,
+              child: Text(
+                'YH',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
             ),
           ),
           const SizedBox(width: 16),

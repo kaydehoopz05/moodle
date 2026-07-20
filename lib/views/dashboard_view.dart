@@ -91,9 +91,7 @@ class _DashboardViewState extends State<DashboardView> {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
+                  Row(
                     children: [
                       Text(
                         'Dashboard',
@@ -101,6 +99,20 @@ class _DashboardViewState extends State<DashboardView> {
                           fontWeight: FontWeight.bold,
                           fontSize: isCompact ? 16 : 18,
                           color: moodlePurple,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/courses');
+                        },
+                        child: Text(
+                          'My Courses',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: isCompact ? 16 : 18,
+                            color: moodlePurple,
+                          ),
                         ),
                       ),
                     ],

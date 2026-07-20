@@ -13,11 +13,17 @@ class ProfilePageView extends StatelessWidget {
         backgroundColor: moodleWhite,
         foregroundColor: moodleTextDark,
         elevation: 1,
+        toolbarHeight: 76,
         titleSpacing: 0,
-        title: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
+        leadingWidth: 56,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
+        title: Row(
+          children: [
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/');
@@ -35,21 +41,39 @@ class ProfilePageView extends StatelessWidget {
                 ),
               ),
             ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacementNamed(context, '/');
-                },
-                child: const Text(
-                  'Dashboard',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: moodlePurple,
+            const SizedBox(width: 10),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/');
+                  },
+                  child: const Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/courses');
+                  },
+                  child: const Text(
+                    'My Courses',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         actions: [
           IconButton(
@@ -64,7 +88,7 @@ class ProfilePageView extends StatelessWidget {
             icon: const Icon(Icons.chat_bubble_outline),
             onPressed: () {},
           ),
-          
+          const SizedBox(width: 8),
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, '/profile');
