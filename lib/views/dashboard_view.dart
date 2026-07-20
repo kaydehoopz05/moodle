@@ -160,7 +160,7 @@ class _DashboardViewState extends State<DashboardView> {
               backgroundColor: moodleGrayBg,
               foregroundColor: moodlePurple,
               child: Text(
-                'YH',
+                'KD',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
