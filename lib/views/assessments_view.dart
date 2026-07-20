@@ -19,30 +19,30 @@ class _AssessmentsViewState extends State<AssessmentsView> {
   @override
   Widget build(BuildContext context) {
     final assessmentsByMonth = {
-      'July': [
-        _AssessmentData(
+      'July 2026': [
+        const _AssessmentData(
           title: 'Research Methods Draft',
           course: 'Research Methods',
           due: 'Due tomorrow • 23:59',
           type: 'Assignment',
         ),
-        _AssessmentData(
+        const _AssessmentData(
           title: 'Data Structures Quiz',
           course: 'Computer Science 101',
           due: 'Due in 3 days',
           type: 'Quiz',
         ),
       ],
-      'August': [
-        _AssessmentData(
+      'August 2026': [
+        const _AssessmentData(
           title: 'Statistics Lab Report',
           course: 'Mathematics for Computing',
           due: 'Due in 14 days',
           type: 'Lab report',
         ),
       ],
-      'September': [
-        _AssessmentData(
+      'September 2026': [
+        const _AssessmentData(
           title: 'Systems Design Presentation',
           course: 'Software Engineering',
           due: 'Due in 30 days',
