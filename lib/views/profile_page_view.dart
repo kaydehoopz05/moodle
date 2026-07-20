@@ -71,6 +71,20 @@ class ProfilePageView extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/assessments');
+                  },
+                  child: const Text(
+                    'My Assessments',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
               ],
             ),
           ],
