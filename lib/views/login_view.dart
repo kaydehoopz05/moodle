@@ -44,27 +44,84 @@ class LoginView extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            const Text(
-              'Login',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: moodlePurple,
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/');
+                  },
+                  child: const Text(
+                    'Dashboard',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/courses');
+                  },
+                  child: const Text(
+                    'My Courses',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/assessments');
+                  },
+                  child: const Text(
+                    'My Assessments',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: moodlePurple,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ),
-      drawer: const NavDrawer(),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/profile');
-          },
-          child: const Text('Login'),
-        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search_outlined),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.notifications_none_outlined),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.chat_bubble_outline),
+            onPressed: () {},
+          ),
+          const SizedBox(width: 8),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: const CircleAvatar(
+              radius: 18,
+              backgroundColor: moodleGrayBg,
+              foregroundColor: moodlePurple,
+              child: Text(
+                'KD',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+        ],
       ),
     );
   }
-
 }
