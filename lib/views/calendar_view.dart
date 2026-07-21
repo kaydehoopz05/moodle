@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
+// ignore: unused_import
+import 'package:moodle/views/profile_page_view.dart';
 
 class CalendarView extends StatelessWidget {
   const CalendarView({Key? key}) : super(key: key);
