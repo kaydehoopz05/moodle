@@ -8,6 +8,7 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name ?? '/';
     final bool isDashboard = currentRoute == '/';
+    final bool isCalendar = currentRoute == '/calendar';
     final bool isCourses = currentRoute == '/courses';
 
     return Drawer(
@@ -67,8 +68,12 @@ class NavDrawer extends StatelessWidget {
                         _DrawerItem(
               icon: Icons.calendar_month_outlined,
               label: 'Calendar',
+              selected: isCalendar,
               onTap: () {
                 Navigator.pop(context);
+                if (!isCalendar) {
+                  Navigator.pushReplacementNamed(context, '/calendar');
+                }
               },
             ),
                         _DrawerItem(

@@ -98,30 +98,44 @@ class CalendarView extends StatelessWidget {
               style: TextStyle(fontSize: 15, color: moodleTextDark),
             ),
             const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: moodleWhite,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: moodleBorder),
-              ),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'No events scheduled yet.',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: moodleTextDark,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/calendar/month');
+              },
+              child: Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: moodleWhite,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: moodleBorder),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:  [
+                    Text(
+                      'Open month calendar',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: moodleTextDark,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Check back later to see your course deadlines and academic events.',
-                    style: TextStyle(fontSize: 14, color: moodleTextMuted),
-                  ),
-                ],
+                     SizedBox(height: 8),
+                    Text(
+                      'Tap to view your schedule in a full monthly calendar.',
+                      style: TextStyle(fontSize: 14, color: moodleTextMuted),
+                    ),
+                    SizedBox(height: 16),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                        color: moodlePurple,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
