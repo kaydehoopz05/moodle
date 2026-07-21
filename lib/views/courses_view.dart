@@ -9,12 +9,19 @@ class CoursesView extends StatelessWidget {
   Widget build(BuildContext context) {
     final modules = [
       const _ModuleData(
+        code: "M234",
+        school: "School of Computing",
         title: 'Programming Fundamentals',
-        detail: 'Week 3 • 2 activities due today',
       ),
       const _ModuleData(
+        code: "M234",
+        school: "School of Computing",
         title: 'Algorithms and Structures',
-        detail: 'Week 4 • Quiz available',
+      ),
+      const _ModuleData(
+        code: "M234",
+        school: "Database Systems",
+        title: 'Programming Fundamentals',
       ),
     ];
 
@@ -173,8 +180,16 @@ class CoursesView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                                                        Text(
+                              module.code,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: moodleTextDark,
+                              ),
+                            ),
                             Text(
-                              module.title,
+                              module.school,
                               style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
@@ -183,7 +198,7 @@ class CoursesView extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              module.detail,
+                              module.title,
                               style: const TextStyle(
                                 fontSize: 13,
                                 color: moodleTextMuted,
@@ -222,8 +237,9 @@ class CoursesView extends StatelessWidget {
 }
 
 class _ModuleData {
+  final String code;
+  final String school;
   final String title;
-  final String detail;
 
-  const _ModuleData({required this.title, required this.detail});
+  const _ModuleData({required this.code, required this.school, required this.title});
 }
