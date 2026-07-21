@@ -144,11 +144,14 @@ class _DashboardViewState extends State<DashboardView> {
           ),
           IconButton(
             icon: const Icon(Icons.notifications_none_outlined),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
           ),
           IconButton(
             icon: const Icon(Icons.chat_bubble_outline),
-            onPressed: () {},
+            onPressed: () {
+            },
           ),
           const SizedBox(width: 8),
           GestureDetector(
