@@ -155,7 +155,7 @@ class _AssessmentsViewState extends State<AssessmentsView> {
               backgroundColor: moodleGrayBg,
               foregroundColor: moodlePurple,
               child: Text(
-                'YH',
+                'KD',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               ),
             ),
