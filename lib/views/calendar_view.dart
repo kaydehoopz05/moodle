@@ -93,37 +93,130 @@ class CalendarView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/calendar/month');
-              },
-              child: Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: moodleWhite,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: moodleBorder),
-                ),
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                    colorScheme: const ColorScheme.light(
-                      primary: moodlePurple,
-                      onPrimary: moodleWhite,
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: moodleWhite,
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                border: Border.all(color: moodleBorder),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${_monthNames[DateTime.now().month - 1]} ${DateTime.now().year}',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: moodleTextDark,
                     ),
                   ),
-                child: CalendarDatePicker(
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2020),
-                  lastDate: DateTime(2030),
-                  onDateChanged: (date) {
-                  },
-                ),
+                  const SizedBox(height: 14),
+                  _buildWeekDayLabels(),
+                  const SizedBox(height: 12),
+                  _buildDateGrid(DateTime.now()),
+                ],
               ),
-            ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  static const _monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  Widget _buildWeekDayLabels() {
+    const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    return Row(
+      children: weekDays
+          .map(
+            (label) => Expanded(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: moodleTextMuted,
+                ),
+              ),
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  Widget _buildDateGrid(DateTime date) {
+    final days = _monthDays(date);
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 7,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        childAspectRatio: 1,
+      ),
+      itemCount: days.length,
+      itemBuilder: (context, index) {
+        final day = days[index];
+        final isToday = day != null && day == DateTime.now().day;
+        return Container(
+          decoration: BoxDecoration(
+            color: day == null
+                ? moodleBg
+                : isToday
+                    ? moodlePurple
+                    : moodleWhite,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: moodleBorder),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            day == null ? '' : '$day',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: day == null
+                  ? moodleTextMuted
+                  : isToday
+                      ? moodleWhite
+                      : moodleTextDark,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  List<int?> _monthDays(DateTime date) {
+    final firstDay = DateTime(date.year, date.month, 1);
+    final firstWeekday = (firstDay.weekday + 6) % 7;
+    final totalDays = DateTime(date.year, date.month + 1, 0).day;
+
+    final days = <int?>[];
+    for (var i = 0; i < firstWeekday; i++) {
+      days.add(null);
+    }
+    for (var day = 1; day <= totalDays; day++) {
+      days.add(day);
+    }
+    while (days.length % 7 != 0) {
+      days.add(null);
+    }
+    return days;
   }
 }
