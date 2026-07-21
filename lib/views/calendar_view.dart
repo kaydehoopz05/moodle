@@ -21,36 +21,65 @@ class CalendarView extends StatelessWidget {
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
-        title: Row(
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacementNamed(context, '/');
-              },
-              child: Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  color: moodleGrayBg,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Image.asset(
-                  'images/moodle_logo.png',
-                  fit: BoxFit.contain,
-                ),
+            title : Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/');
+                    },
+                    child: Container(
+                      width: 34,
+                      height: 34,
+                      decoration: BoxDecoration(
+                        color: moodleGrayBg,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Image.asset(
+                        'images/moodle_logo.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Row(
+                    children: [
+                      const Text(
+                        'Dashboard',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: moodlePurple,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/courses');
+                        },
+                        child: const Text(
+                          'My Courses',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: moodlePurple,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/assessments');
+                        },
+                        child: const Text(
+                          'My Assessments',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: moodlePurple,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(width: 10),
-            const Text(
-              'Calendar',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: moodlePurple,
-              ),
-            ),
-          ],
-        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.search_outlined),
