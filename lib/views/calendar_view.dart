@@ -108,6 +108,7 @@ class CalendarView extends StatelessWidget {
                   data: Theme.of(context).copyWith(
                     colorScheme: const ColorScheme.light(
                       primary: moodlePurple,
+                      onPrimary: moodleWhite,
                     ),
                   ),
                 child: CalendarDatePicker(
