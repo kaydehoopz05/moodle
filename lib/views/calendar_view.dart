@@ -43,11 +43,17 @@ class CalendarView extends StatelessWidget {
                   const SizedBox(width: 10),
                   Row(
                     children: [
-                      const Text(
-                        'Dashboard',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: moodlePurple,
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/');
+                        },
+                        child: const Text(
+                          'Dashboard',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: moodlePurple,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 10),
