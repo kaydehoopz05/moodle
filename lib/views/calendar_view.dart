@@ -104,8 +104,15 @@ class CalendarView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: moodleBorder),
                 ),
+                child: CalendarDatePicker(
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2020),
+                  lastDate: DateTime(2030),
+                  onDateChanged: (date) {
+                  },
                 ),
               ),
+            ),
           ],
         ),
       ),
