@@ -104,6 +104,12 @@ class CalendarView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: moodleBorder),
                 ),
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                    colorScheme: const ColorScheme.light(
+                      primary: moodlePurple,
+                    ),
+                  ),
                 child: CalendarDatePicker(
                   initialDate: DateTime.now(),
                   firstDate: DateTime(2020),
@@ -112,6 +118,7 @@ class CalendarView extends StatelessWidget {
                   },
                 ),
               ),
+            ),
             ),
           ],
         ),
