@@ -85,17 +85,12 @@ class CalendarView extends StatelessWidget {
           padding: const EdgeInsets.all(24.0),
           children: [
             const Text(
-              'Academic calendar',
+              'Calendar',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 color: moodlePurple,
               ),
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Your upcoming events and deadlines in one place.',
-              style: TextStyle(fontSize: 15, color: moodleTextDark),
             ),
             const SizedBox(height: 24),
             GestureDetector(
