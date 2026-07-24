@@ -9,43 +9,73 @@ class CalendarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: moodleWhite,
-        foregroundColor: moodleTextDark,
-        elevation: 1,
-        toolbarHeight: 76,
-        titleSpacing: 0,
-        leadingWidth: 56,
-        leading: Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
-        ),
-            title : Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(context, '/');
-                    },
-                    child: Container(
-                      width: 34,
-                      height: 34,
-                      decoration: BoxDecoration(
-                        color: moodleGrayBg,
-                        borderRadius: BorderRadius.circular(8),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isCompact = constraints.maxWidth < 480;
+
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: moodleWhite,
+            foregroundColor: moodleTextDark,
+            elevation: 1,
+            toolbarHeight: isCompact ? 64 : 76,
+            titleSpacing: 0,
+            leadingWidth: 56,
+            leading: Builder(
+              builder: (context) => IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+            ),
+            title: Row(
+              children: [
+                // Logo is non-tappable on compact, tappable otherwise
+                isCompact
+                    ? Container(
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: moodleGrayBg,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Image.asset(
+                          'images/moodle_logo.png',
+                          fit: BoxFit.contain,
+                        ),
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/');
+                        },
+                        child: Container(
+                          width: 34,
+                          height: 34,
+                          decoration: BoxDecoration(
+                            color: moodleGrayBg,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Image.asset(
+                            'images/moodle_logo.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
-                      child: Image.asset(
-                        'images/moodle_logo.png',
-                        fit: BoxFit.contain,
+                const SizedBox(width: 8),
+                if (isCompact)
+                  const Expanded(
+                    child: Text(
+                      'Calendar',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: moodlePurple,
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 10),
+                  )
+                else
                   Row(
                     children: [
-                      const SizedBox(width: 10),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, '/');
@@ -86,82 +116,84 @@ class CalendarView extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search_outlined),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.notifications_none_outlined),
-            onPressed: () {},
-          ),
-          const SizedBox(width: 8),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-            child: const CircleAvatar(
-              radius: 18,
-              backgroundColor: moodleGrayBg,
-              foregroundColor: moodlePurple,
-              child: Text(
-                'YH',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-              ),
+              ],
             ),
-          ),
-          const SizedBox(width: 16),
-        ],
-      ),
-      drawer: const NavDrawer(),
-      body: Container(
-        color: moodleBg,
-        child: ListView(
-          padding: const EdgeInsets.all(24.0),
-          children: [
-            const Text(
-              'Calendar',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: moodlePurple,
-              ),
-            ),
-            const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: moodleWhite,
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
-                border: Border.all(color: moodleBorder),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${_monthNames[DateTime.now().month - 1]} ${DateTime.now().year}',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: moodleTextDark,
+            actions: isCompact
+                ? const [] // no search / notifications / avatar on compact
+                : [
+                    IconButton(
+                      icon: const Icon(Icons.search_outlined),
+                      onPressed: () {},
                     ),
+                    IconButton(
+                      icon: const Icon(Icons.notifications_none_outlined),
+                      onPressed: () {},
+                    ),
+                    const SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
+                      child: const CircleAvatar(
+                        radius: 18,
+                        backgroundColor: moodleGrayBg,
+                        foregroundColor: moodlePurple,
+                        child: Text(
+                          'YH',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                  ],
+          ),
+          drawer: const NavDrawer(),
+          body: Container(
+            color: moodleBg,
+            child: ListView(
+              padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
+              children: [
+                Text(
+                  'Calendar',
+                  style: TextStyle(
+                    fontSize: isCompact ? 22 : 28,
+                    fontWeight: FontWeight.bold,
+                    color: moodlePurple,
                   ),
-                  const SizedBox(height: 14),
-                  _buildWeekDayLabels(),
-                  const SizedBox(height: 12),
-                  _buildDateGrid(DateTime.now()),
-                ],
-              ),
+                ),
+                SizedBox(height: isCompact ? 16 : 24),
+                Container(
+                  padding: EdgeInsets.all(isCompact ? 12 : 20),
+                  decoration: BoxDecoration(
+                    color: moodleWhite,
+                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                    border: Border.all(color: moodleBorder),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${_monthNames[DateTime.now().month - 1]} ${DateTime.now().year}',
+                        style: TextStyle(
+                          fontSize: isCompact ? 16 : 20,
+                          fontWeight: FontWeight.bold,
+                          color: moodleTextDark,
+                        ),
+                      ),
+                      SizedBox(height: isCompact ? 10 : 14),
+                      _buildWeekDayLabels(isCompact),
+                      SizedBox(height: isCompact ? 8 : 12),
+                      _buildDateGrid(DateTime.now(), isCompact),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
-
-
 
   static const _monthNames = [
     'January',
@@ -178,7 +210,7 @@ class CalendarView extends StatelessWidget {
     'December',
   ];
 
-  Widget _buildWeekDayLabels() {
+  Widget _buildWeekDayLabels(bool isCompact) {
     const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     return Row(
       children: weekDays
@@ -187,8 +219,8 @@ class CalendarView extends StatelessWidget {
               child: Text(
                 label,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
+                style: TextStyle(
+                  fontSize: isCompact ? 10 : 12,
                   fontWeight: FontWeight.bold,
                   color: moodleTextMuted,
                 ),
@@ -199,15 +231,15 @@ class CalendarView extends StatelessWidget {
     );
   }
 
-  Widget _buildDateGrid(DateTime date) {
+  Widget _buildDateGrid(DateTime date, bool isCompact) {
     final days = _monthDays(date);
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 7,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
+        crossAxisSpacing: isCompact ? 4 : 8,
+        mainAxisSpacing: isCompact ? 4 : 8,
         childAspectRatio: 1,
       ),
       itemCount: days.length,
@@ -221,13 +253,14 @@ class CalendarView extends StatelessWidget {
                 : isToday
                     ? moodlePurple
                     : moodleWhite,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(isCompact ? 10 : 14),
             border: Border.all(color: moodleBorder),
           ),
           alignment: Alignment.center,
           child: Text(
             day == null ? '' : '$day',
             style: TextStyle(
+              fontSize: isCompact ? 12 : 14,
               fontWeight: FontWeight.w600,
               color: day == null
                   ? moodleTextMuted
