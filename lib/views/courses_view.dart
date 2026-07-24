@@ -137,7 +137,23 @@ class CoursesView extends StatelessWidget {
               ],
             ),
             actions: isCompact
-                ? const [] // no search / notifications / chat / avatar on compact
+                ? [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
+                      child: const CircleAvatar(
+                        radius: 18,
+                        backgroundColor: moodleGrayBg,
+                        foregroundColor: moodlePurple,
+                        child: Text(
+                          'KD',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                  ]
                 : [
                     IconButton(
                       icon: const Icon(Icons.search_outlined),
