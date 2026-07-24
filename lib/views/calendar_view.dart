@@ -29,7 +29,6 @@ class CalendarView extends StatelessWidget {
             ),
             title: Row(
               children: [
-                // Logo is non-tappable on compact, tappable otherwise
                 isCompact
                     ? Container(
                         width: 28,
@@ -119,7 +118,23 @@ class CalendarView extends StatelessWidget {
               ],
             ),
             actions: isCompact
-                ? const [] // no search / notifications / avatar on compact
+                ? [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
+                      child: const CircleAvatar(
+                        radius: 18,
+                        backgroundColor: moodleGrayBg,
+                        foregroundColor: moodlePurple,
+                        child: Text(
+                          'YH',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                  ]
                 : [
                     IconButton(
                       icon: const Icon(Icons.search_outlined),
