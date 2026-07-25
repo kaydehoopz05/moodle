@@ -300,11 +300,23 @@ class _ModuleData {
 
 
 class _CourseCard extends StatelessWidget {
-  
+  final _ModuleData module;
+
+ 
+  const _CourseCard({Key? key, required this.module}) : super(key: key);
+ 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+    return Material(
+      color: moodleWhite,
+      borderRadius: BorderRadius.circular(12),
+      clipBehavior: Clip.antiAlias,
+      elevation: 0,
+      child: InkWell(
+        onTap: () {}
+      )
+    );
+ 
+}
 
 }
