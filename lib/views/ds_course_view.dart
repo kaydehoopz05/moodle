@@ -173,9 +173,9 @@ class DSCourseView extends StatelessWidget {
                 horizontal: isCompact ? 16.0 : 32.0,
                 vertical: 20.0,
               ),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
@@ -183,14 +183,34 @@ class DSCourseView extends StatelessWidget {
                         onTap: () {
                           Navigator.pushReplacementNamed(context, '/');
                         },
-                      )
-                      ]
+                        child: const Text(
+                          'Dashboard',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: moodlePurple,
+                          ),
+                        ),
                       ),
-                      ]
-              )
-              )
-              ));
-              }
-              );
-              }
-              }
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 6),
+                        child: Text(
+                          '/',
+                          style: TextStyle(fontSize: 14, color: moodleTextMuted),
+                        ),
+                      ),
+                      const Text(
+                        'M234-2025/26-DSALG',
+                        style: TextStyle(fontSize: 14, color: moodleTextMuted),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
