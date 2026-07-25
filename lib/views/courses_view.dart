@@ -313,9 +313,15 @@ class _CourseCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       elevation: 0,
       child: InkWell(
-        onTap: () {}
+        onTap: () {},
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: moodleBorder),
+        )
       )
-    );
+    )
+  );
  
 }
 
