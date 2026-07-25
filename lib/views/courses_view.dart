@@ -297,3 +297,14 @@ class _ModuleData {
 
   const _ModuleData({required this.code, required this.school, required this.title, required this.headerColor});
 }
+
+
+class _CourseCard extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
+}
