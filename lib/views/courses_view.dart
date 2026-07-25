@@ -264,6 +264,13 @@ class _ModuleData {
   final String title;
   final Color headerColor;
 
+  const _ModuleData({
+    required this.code,
+    required this.school,
+    required this.title,
+    required this.headerColor,
+  });
+}
 
 class _CourseCard extends StatelessWidget {
   final _ModuleData module;
