@@ -16,19 +16,19 @@ class CoursesView extends StatelessWidget {
         destinationBuilder: (context) => const DSCourseView(),
 
       ),
-      _ModuleData(
+      const _ModuleData(
         code: "M235",
         school: "School of Computing",
         title: 'Algorithms and Structures',
         headerColor: moodlePurple,
-        destinationBuilder: (BuildContext context) {},
+        destinationBuilder: null,
       ),
-      _ModuleData(
+      const _ModuleData(
         code: "M236",
         school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
-        destinationBuilder: (BuildContext context) {}
+        destinationBuilder: null,
       ),
     ];
 
