@@ -318,9 +318,19 @@ class _CourseCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: moodleBorder),
-        )
-      )
-    )
+        ),
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Container(
+            color: module.headerColor,
+          ),
+        ),
+      ]
+      ))
+    ),
   );
  
 }
