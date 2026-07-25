@@ -8,7 +8,7 @@ import 'package:moodle/views/profile_page_view.dart';
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -119,7 +119,6 @@ class LoginView extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 16),
         ],
       ),
     );
