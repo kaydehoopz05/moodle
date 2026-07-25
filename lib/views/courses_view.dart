@@ -329,12 +329,37 @@ class _CourseCard extends StatelessWidget {
           ),
         ),
         // Details.
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-      ]
+                    Text(
+                      module.code,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: moodleTextMuted,
+                      ),
+                    ),
+                    Text(
+                      module.school,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: moodleTextMuted,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      module.title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: moodlePurple,
+                      ),
+                    ),
+                    ]
           )
         )
         ]
