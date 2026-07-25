@@ -180,4 +180,25 @@ class _ProfileMenuButton extends StatelessWidget {
   final BuildContext context;
   const _ProfileMenuButton({required this.context});
 
+  @override
+  Widget build(BuildContext _) {
+    return PopupMenuButton<_ProfileMenuAction>(
+      offset: const Offset(0, 44),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(color: moodleBorder),
+      ),
+      onSelected: (action) {
+        switch (action) {
+          case _ProfileMenuAction.viewProfile:
+            Navigator.pushNamed(context, '/profile');
+            break;
+          case _ProfileMenuAction.sign:
+            Navigator.pushNamed(context, '/login', route => false);
+            break;
+            
+        }
+      }, 
+    )
+    }
 }
