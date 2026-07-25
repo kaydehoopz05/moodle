@@ -150,21 +150,6 @@ class ProfilePageView extends StatelessWidget {
                       icon: const Icon(Icons.chat_bubble_outline),
                       onPressed: () {},
                     ),
-                    const SizedBox(width: 8),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: moodleGrayBg,
-                        foregroundColor: moodlePurple,
-                        child: Text(
-                          'KD',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                        ),
-                      ),
-                    ),
                     const SizedBox(width: 16),
                   ],
           ),
@@ -209,6 +194,15 @@ class _ProfileMenuButton extends StatelessWidget {
           child: Text('Sign out', style: TextStyle(color: Colors.red)),
         ),
         ]
-    )
+             child: const CircleAvatar(
+        radius: 18,
+        backgroundColor: moodleGrayBg,
+        foregroundColor: moodlePurple,
+        child: Text(
+          'KD',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+        ),
+      ),
+    );
     }
 }
