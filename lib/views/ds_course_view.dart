@@ -173,20 +173,20 @@ class DSCourseView extends StatelessWidget {
                 horizontal: isCompact ? 16.0 : 32.0,
                 vertical: 20.0,
               ),
-                child: const Column(
+                child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                        Text(
-                        'Dashboard',
-                        style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: moodlePurple,
-                        ),
-                    ),
-                     SizedBox(height: 12),
-                    // Don't forget my ourse content widgets
-                    ],
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/');
+                        },
+                      )
+                      ]
+                      ),
+                      ]
               )
               )
               ));
