@@ -560,7 +560,7 @@ class _DashboardViewState extends State<DashboardView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Upcoming activity',
+                                  'Assignment: Database draft (SQL). Deadline 03/08/2024, 14:00',
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
@@ -569,13 +569,8 @@ class _DashboardViewState extends State<DashboardView> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Assignment: Research Methods draft',
+                                  'M234 - School of Computing - Database Systems',
                                   style: TextStyle(fontSize: 14, color: moodleTextDark),
-                                ),
-                                SizedBox(height: 4),
-                                Text(
-                                  'Due 23:59 • 2 submissions pending',
-                                  style: TextStyle(fontSize: 13, color: moodleTextMuted),
                                 ),
                               ],
                             ),
