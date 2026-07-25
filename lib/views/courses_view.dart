@@ -82,7 +82,7 @@ class CoursesView extends StatelessWidget {
                 if (isCompact)
                   const Expanded(
                     child: Text(
-                      'My courses',
+                      'My Modules & Courses',
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -113,7 +113,7 @@ class CoursesView extends StatelessWidget {
                           Navigator.pushNamed(context, '/courses');
                         },
                         child: const Text(
-                          'My Courses',
+                          'My Modules & Courses',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -195,7 +195,7 @@ class CoursesView extends StatelessWidget {
               padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
               children: [
                 Text(
-                  'My courses',
+                  'My Modules & Courses',
                   style: TextStyle(
                     fontSize: isCompact ? 22 : 28,
                     fontWeight: FontWeight.bold,
@@ -217,8 +217,6 @@ class CoursesView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Responsive grid of course cards (same card "shape" as the
-                // Moodle card view: banner header on top, details below).
                 LayoutBuilder(
                   builder: (context, gridConstraints) {
                     int columns;
@@ -292,14 +290,12 @@ class _CourseCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Banner header.
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Container(
                   color: module.headerColor,
                 ),
               ),
-              // Details.
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
                 child: Column(
