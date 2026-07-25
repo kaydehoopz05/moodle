@@ -195,10 +195,20 @@ class _ProfileMenuButton extends StatelessWidget {
             break;
           case _ProfileMenuAction.sign:
             Navigator.pushNamed(context, '/login', route => false);
-            break;
-            
+            break; 
         }
       }, 
+      itemBuilder: (context) => const [
+        PopupMenuItem(
+          value: _ProfileMenuAction.viewProfile,
+          child: Text('View profile'),
+        ),
+                PopupMenuDivider(),
+        PopupMenuItem(
+          value: _ProfileMenuAction.signOut,
+          child: Text('Sign out', style: TextStyle(color: Colors.red)),
+        ),
+        ]
     )
     }
 }
