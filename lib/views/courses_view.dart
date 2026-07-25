@@ -8,23 +8,27 @@ class CoursesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modules = [
-      const _ModuleData(
+      _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Database Systems',
         headerColor: moodlePurple,
+        destinationBuilder: (context) => const DsCourseView(),
+
       ),
-      const _ModuleData(
+      _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Algorithms and Structures',
         headerColor: moodlePurple,
+        destinationBuilder: (BuildContext context) {},
       ),
-      const _ModuleData(
+      _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
+        destinationBuilder: (BuildContext context) {}
       ),
     ];
 
