@@ -133,7 +133,7 @@ class _DashboardViewState extends State<DashboardView> {
                                 Navigator.pushNamed(context, '/courses');
                               },
                               child: const Text(
-                                'My Courses',
+                                'My Modules & Courses',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
