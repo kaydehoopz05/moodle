@@ -150,6 +150,8 @@ class ProfilePageView extends StatelessWidget {
                       icon: const Icon(Icons.chat_bubble_outline),
                       onPressed: () {},
                     ),
+                    const SizedBox(width: 8),
+                    _ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ],
           ),
@@ -159,7 +161,7 @@ class ProfilePageView extends StatelessWidget {
   }
 }
 
-
+enum _ProfileMenuAction { viewProfile, sign }
 
 class _ProfileMenuButton extends StatelessWidget {
   final BuildContext context;
@@ -179,8 +181,8 @@ class _ProfileMenuButton extends StatelessWidget {
             Navigator.pushNamed(context, '/profile');
             break;
           case _ProfileMenuAction.sign:
-            Navigator.pushNamed(context, '/login', route => false);
-            break; 
+            Navigator.pushNamed(context, '/login');
+            break;
         }
       }, 
       itemBuilder: (context) => const [
@@ -190,11 +192,11 @@ class _ProfileMenuButton extends StatelessWidget {
         ),
                 PopupMenuDivider(),
         PopupMenuItem(
-          value: _ProfileMenuAction.signOut,
+          value: _ProfileMenuAction.sign,
           child: Text('Sign out', style: TextStyle(color: Colors.red)),
         ),
-        ]
-             child: const CircleAvatar(
+        ],
+      child: const CircleAvatar(
         radius: 18,
         backgroundColor: moodleGrayBg,
         foregroundColor: moodlePurple,
