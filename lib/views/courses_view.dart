@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
-
+import 'package:moodle/views/ds_course_view.dart';
 class CoursesView extends StatelessWidget {
   const CoursesView({Key? key}) : super(key: key);
 
@@ -13,7 +13,7 @@ class CoursesView extends StatelessWidget {
         school: "School of Computing",
         title: 'Database Systems',
         headerColor: moodlePurple,
-        destinationBuilder: (context) => const DsCourseView(),
+        destinationBuilder: (context) => const DSCourseView(),
 
       ),
       _ModuleData(
@@ -288,7 +288,7 @@ class _CourseCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       elevation: 0,
       child: InkWell(
-        onTap: () {},
+        onTap: module.destinationBuilder != null ? () => Navigator.pushNamed(context, '/module/${module.code}') : null,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
