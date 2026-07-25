@@ -121,6 +121,6 @@ class LoginView extends StatelessWidget {
           ),
         ],
       ),
-    );
+      );
   }
 }
