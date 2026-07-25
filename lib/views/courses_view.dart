@@ -8,19 +8,19 @@ class CoursesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modules = [
-      const _ModuleData(
+      _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
       ),
-      const _ModuleData(
+       _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Algorithms and Structures',
         headerColor: moodlePurple,
       ),
-      const _ModuleData(
+       _ModuleData(
         code: "M234",
         school: "Database Systems",
         title: 'Programming Fundamentals',
@@ -217,69 +217,38 @@ class CoursesView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                ...modules.map((module) => Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      padding: EdgeInsets.all(isCompact ? 12 : 16),
-                      decoration: BoxDecoration(
-                        color: moodleWhite,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: moodleBorder),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  module.code,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: isCompact ? 14 : 16,
-                                    color: moodleTextDark,
-                                  ),
-                                ),
-                                Text(
-                                  module.school,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: isCompact ? 14 : 16,
-                                    color: moodleTextDark,
-                                  ),
-                                ),
-                                const SizedBox(height: 6),
-                                Text(
-                                  module.title,
-                                  style: const TextStyle(
-                                    fontSize: 13,
-                                    color: moodleTextMuted,
-                                  ),
-                                ),
-                              ],
+                // Responsive grid of course cards (same card "shape" as the
+                // Moodle card view: banner header on top, details below).
+                LayoutBuilder(
+                  builder: (context, gridConstraints) {
+                    int columns;
+                    if (gridConstraints.maxWidth < 480) {
+                      columns = 1;
+                    } else if (gridConstraints.maxWidth < 900) {
+                      columns = 2;
+                    } else {
+                      columns = 3;
+                    }
+
+                    const spacing = 16.0;
+                    final cardWidth =
+                        (gridConstraints.maxWidth - spacing * (columns - 1)) /
+                            columns;
+
+                    return Wrap(
+                      spacing: spacing,
+                      runSpacing: spacing,
+                      children: modules
+                          .map(
+                            (module) => SizedBox(
+                              width: cardWidth,
+                              child: _CourseCard(module: module),
                             ),
-                          ),
-                          const SizedBox(width: 12),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: moodleBg,
-                              borderRadius: BorderRadius.circular(999),
-                            ),
-                            child: const Text(
-                              'Active',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: moodlePurple,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
+                          )
+                          .toList(),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -295,16 +264,11 @@ class _ModuleData {
   final String title;
   final Color headerColor;
 
-  const _ModuleData({required this.code, required this.school, required this.title, required this.headerColor});
 }
-
 
 class _CourseCard extends StatelessWidget {
   final _ModuleData module;
-
- 
   const _CourseCard({Key? key, required this.module}) : super(key: key);
- 
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -318,22 +282,6 @@ class _CourseCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: moodleBorder),
-        ),
-        child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Container(
-            color: module.headerColor,
-          ),
-        ),
-        // Details.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
                     Text(
                       module.code,
                       style: const TextStyle(
@@ -359,14 +307,5 @@ class _CourseCard extends StatelessWidget {
                         color: moodlePurple,
                       ),
                     ),
-                    ]
-          )
-        )
-        ]
-      ))
-    ),
-  );
- 
-}
 
 }
