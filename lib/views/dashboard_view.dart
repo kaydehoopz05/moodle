@@ -3,6 +3,8 @@ import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
 // ignore: unused_import
 import 'package:moodle/views/profile_page_view.dart';
+// ignore: unused_import
+import 'package:moodle/views/ds_course_view.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
