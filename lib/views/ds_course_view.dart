@@ -168,9 +168,15 @@ class DSCourseView extends StatelessWidget {
           drawer: const NavDrawer(),
           body: Container(
             color: moodleBg,
-          ),
-        );
-      },
-    );
-  }
-}
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(
+                horizontal: isCompact ? 16.0 : 32.0,
+                vertical: 20.0,
+              ),
+              )
+              )
+              );
+              }
+              );
+              }
+              }
