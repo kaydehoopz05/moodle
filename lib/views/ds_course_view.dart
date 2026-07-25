@@ -333,18 +333,6 @@ class _CourseTabState extends State<_CourseTab> {
                   ),
                 ),
               ),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => setState(() => _sectionExpanded = !_sectionExpanded),
-                child: Text(
-                  _sectionExpanded ? 'Collapse all' : 'Expand all',
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: moodlePurple,
-                  ),
-                ),
-              ),
             ],
           ),
           if (_sectionExpanded) ...[
