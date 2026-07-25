@@ -238,7 +238,7 @@ class DSCourseView extends StatelessWidget {
                             tabs: [
                               Tab(text: 'Course'),
                               Tab(text: 'Module Info'),
-                              Tab(text: 'Assessment Information (AIR)'),
+                              Tab(text: 'Assessment Information'),
                               Tab(text: 'Reading Lists'),
                               Tab(text: 'Grades'),
                               Tab(text: 'More'),
