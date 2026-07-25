@@ -207,13 +207,21 @@ class DSCourseView extends StatelessWidget {
                   ),
                     const SizedBox(height: 20), 
                     Text(
-                        'Database Systems (DSALG) (2025/26)',
+                        'Database Systems (DS) (2025/26)',
                         style: TextStyle(
                         fontSize: isCompact ? 22 : 30,
                         fontWeight: FontWeight.bold,
                         color: moodlePurple,
                     ),
                   ),
+                    const SizedBox(height: 20), 
+                    Container(
+                    decoration: BoxDecoration(
+                      color: moodleWhite,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: moodleBorder),
+                    ),
+                    )
                 ],
               ),
             ),
