@@ -540,7 +540,7 @@ class _DashboardViewState extends State<DashboardView> {
                                 ),
                           const SizedBox(height: 20),
                           const Text(
-                            'Tuesday 28th July',
+                            'August 2026',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -560,7 +560,7 @@ class _DashboardViewState extends State<DashboardView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Assignment: Programming Coursework. Deadline 01/08/2024, 23:59',
+                                  'Assignment: Programming Coursework. Deadline 01/08/2026, 23:59',
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
@@ -588,7 +588,7 @@ class _DashboardViewState extends State<DashboardView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Assignment: Database draft (SQL). Deadline 03/08/2024, 14:00',
+                                  'Assignment: Database draft (SQL). Deadline 03/08/2026, 14:00',
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
