@@ -221,12 +221,12 @@ class DSCourseView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: moodleBorder),
                     ),
-                    child: const DefaultTabController(
+                    child: DefaultTabController(
                       length: 6,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TabBar(
+                          const TabBar(
                             isScrollable: true,
                             indicatorColor: moodlePurple,
                             labelColor: moodlePurple,
@@ -244,6 +244,21 @@ class DSCourseView extends StatelessWidget {
                               Tab(text: 'More'),
                             ],
                           ),
+                          Container(height: 1, color: moodleBorder),
+                          SizedBox(
+                            height: isCompact ? 900 : 620,
+                            child: TabBarView(
+                              children: [
+                                _CourseTab(isCompact: isCompact),
+                                const _PlaceholderTab(label: 'Module Info'),
+                                const _PlaceholderTab(
+                                    label: 'Assessment Information (AIR)'),
+                                const _PlaceholderTab(label: 'Reading Lists'),
+                                const _PlaceholderTab(label: 'Grades'),
+                                const _PlaceholderTab(label: 'More'),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -254,6 +269,193 @@ class DSCourseView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _PlaceholderTab extends StatelessWidget {
+  final String label;
+  const _PlaceholderTab({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '$label content coming soon.',
+        style: const TextStyle(fontSize: 14, color: moodleTextMuted),
+      ),
+    );
+  }
+}
+
+class _CourseTab extends StatefulWidget {
+  final bool isCompact;
+  const _CourseTab({required this.isCompact});
+
+  @override
+  State<_CourseTab> createState() => _CourseTabState();
+}
+
+class _CourseTabState extends State<_CourseTab> {
+  bool _sectionExpanded = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              InkWell(
+                borderRadius: BorderRadius.circular(20),
+                onTap: () => setState(() => _sectionExpanded = !_sectionExpanded),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Row(
+                    children: [
+                      AnimatedRotation(
+                        turns: _sectionExpanded ? 0 : -0.25,
+                        duration: const Duration(milliseconds: 150),
+                        child: const Icon(Icons.expand_more, color: moodleTextDark),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        'Introduction to DSALG',
+                        style: TextStyle(
+                          fontSize: widget.isCompact ? 18 : 22,
+                          fontWeight: FontWeight.bold,
+                          color: moodleTextDark,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const Spacer(),
+              GestureDetector(
+                onTap: () => setState(() => _sectionExpanded = !_sectionExpanded),
+                child: Text(
+                  _sectionExpanded ? 'Collapse all' : 'Expand all',
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: moodlePurple,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          if (_sectionExpanded) ...[
+            const SizedBox(height: 16),
+            const _InfoRow(
+              label: 'Tutorials:',
+              note: 'Note: Two one-hour tutorials per week\nare scheduled in your timetable.',
+              slots:  ['Thu 12:00 - 13:00', 'Fri 13:00 - 14:00'],
+              location: 'LT1 Richmond Building',
+            ),
+            const SizedBox(height: 1),
+            const _InfoRow(
+              label: 'Practical Sessions:',
+              note: 'Note: A weekly two-hour practical\nsession is scheduled in your timetable.',
+              slots: ['Mon 09:00 - 11:00', 'Tue 10:00 - 12:00'],
+              location: 'Eldon Building, Lab 2.14',
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _InfoRow extends StatelessWidget {
+  final String label;
+  final String note;
+  final List<String> slots;
+  final String location;
+
+  const _InfoRow({
+    required this.label,
+    required this.note,
+    required this.slots,
+    required this.location,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: moodleBorder)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    label,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: moodleTextDark,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    note,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontStyle: FontStyle.italic,
+                      color: moodleTextMuted,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(width: 1, color: moodleBorder),
+          Expanded(
+            flex: 3,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ...slots.map(
+                    (slot) => Padding(
+                      padding: const EdgeInsets.only(bottom: 4.0),
+                      child: Row(
+                        children: [
+                          const Text('○ ', style: TextStyle(color: moodleTextDark)),
+                          Text(
+                            slot,
+                            style: const TextStyle(fontSize: 14, color: moodleTextDark),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    location,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: moodleTextDark,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
