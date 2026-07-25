@@ -12,16 +12,19 @@ class CoursesView extends StatelessWidget {
         code: "M234",
         school: "School of Computing",
         title: 'Programming Fundamentals',
+        headerColor: moodlePurple,
       ),
       const _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Algorithms and Structures',
+        headerColor: moodlePurple,
       ),
       const _ModuleData(
         code: "M234",
         school: "Database Systems",
         title: 'Programming Fundamentals',
+        headerColor: moodlePurple,
       ),
     ];
 
@@ -290,6 +293,7 @@ class _ModuleData {
   final String code;
   final String school;
   final String title;
+  final Color headerColor;
 
-  const _ModuleData({required this.code, required this.school, required this.title});
+  const _ModuleData({required this.code, required this.school, required this.title, required this.headerColor});
 }
