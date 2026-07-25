@@ -288,7 +288,12 @@ class _CourseCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       elevation: 0,
       child: InkWell(
-        onTap: module.destinationBuilder != null ? () => Navigator.pushNamed(context, '/module/${module.code}') : null,
+        onTap: module.destinationBuilder != null
+        ? () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: module.destinationBuilder!),
+        )
+        : null,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
