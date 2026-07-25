@@ -205,23 +205,49 @@ class DSCourseView extends StatelessWidget {
                       ),
                     ],
                   ),
-                    const SizedBox(height: 20), 
-                    Text(
-                        'Database Systems (DS) (2025/26)',
-                        style: TextStyle(
-                        fontSize: isCompact ? 22 : 30,
-                        fontWeight: FontWeight.bold,
-                        color: moodlePurple,
+                  const SizedBox(height: 20),
+                  Text(
+                    'Database Systems (DS) (2025/26)',
+                    style: TextStyle(
+                      fontSize: isCompact ? 22 : 30,
+                      fontWeight: FontWeight.bold,
+                      color: moodlePurple,
                     ),
                   ),
-                    const SizedBox(height: 20), 
-                    Container(
+                  const SizedBox(height: 20),
+                  Container(
                     decoration: BoxDecoration(
                       color: moodleWhite,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: moodleBorder),
                     ),
-                    )
+                    child: const DefaultTabController(
+                      length: 6,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TabBar(
+                            isScrollable: true,
+                            indicatorColor: moodlePurple,
+                            labelColor: moodlePurple,
+                            unselectedLabelColor: moodleTextMuted,
+                            labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                            tabs: [
+                              Tab(text: 'Course'),
+                              Tab(text: 'Module Info'),
+                              Tab(text: 'Assessment Information (AIR)'),
+                              Tab(text: 'Reading Lists'),
+                              Tab(text: 'Grades'),
+                              Tab(text: 'More'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
