@@ -11,7 +11,7 @@ class CoursesView extends StatelessWidget {
       const _ModuleData(
         code: "M234",
         school: "School of Computing",
-        title: 'Programming Fundamentals',
+        title: 'Database Systems',
         headerColor: moodlePurple,
       ),
       const _ModuleData(
@@ -22,7 +22,7 @@ class CoursesView extends StatelessWidget {
       ),
       const _ModuleData(
         code: "M234",
-        school: "Database Systems",
+        school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
       ),
