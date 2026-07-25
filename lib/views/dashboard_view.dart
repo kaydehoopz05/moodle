@@ -163,20 +163,7 @@ class _DashboardViewState extends State<DashboardView> {
                   ),
             actions: isCompact
                 ? [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: moodleGrayBg,
-                        foregroundColor: moodlePurple,
-                        child: Text(
-                          'KD',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                        ),
-                      ),
-                    ),
+                    _ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ]
                 : [
@@ -201,20 +188,7 @@ class _DashboardViewState extends State<DashboardView> {
                       },
                     ),
                     const SizedBox(width: 8),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: moodleGrayBg,
-                        foregroundColor: moodlePurple,
-                        child: Text(
-                          'KD',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                        ),
-                      ),
-                    ),
+                    _ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ],
           ),
@@ -646,4 +620,52 @@ class _DashboardViewState extends State<DashboardView> {
       },
     );
   }
+}
+
+enum _ProfileMenuAction { viewProfile, sign }
+
+class _ProfileMenuButton extends StatelessWidget {
+  final BuildContext context;
+  const _ProfileMenuButton({required this.context});
+
+  @override
+  Widget build(BuildContext _) {
+    return PopupMenuButton<_ProfileMenuAction>(
+      offset: const Offset(0, 44),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(color: moodleBorder),
+      ),
+      onSelected: (action) {
+        switch (action) {
+          case _ProfileMenuAction.viewProfile:
+            Navigator.pushNamed(context, '/profile');
+            break;
+          case _ProfileMenuAction.sign:
+            Navigator.pushNamed(context, '/login');
+            break;
+        }
+      }, 
+      itemBuilder: (context) => const [
+        PopupMenuItem(
+          value: _ProfileMenuAction.viewProfile,
+          child: Text('Profile'),
+        ),
+                PopupMenuDivider(),
+        PopupMenuItem(
+          value: _ProfileMenuAction.sign,
+          child: Text('Sign out', style: TextStyle(color: Colors.red)),
+        ),
+        ],
+      child: const CircleAvatar(
+        radius: 18,
+        backgroundColor: moodleGrayBg,
+        foregroundColor: moodlePurple,
+        child: Text(
+          'KD',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+        ),
+      ),
+    );
+    }
 }
