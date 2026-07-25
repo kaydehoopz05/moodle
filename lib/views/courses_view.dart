@@ -17,14 +17,14 @@ class CoursesView extends StatelessWidget {
 
       ),
       _ModuleData(
-        code: "M234",
+        code: "M235",
         school: "School of Computing",
         title: 'Algorithms and Structures',
         headerColor: moodlePurple,
         destinationBuilder: (BuildContext context) {},
       ),
       _ModuleData(
-        code: "M234",
+        code: "M236",
         school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
