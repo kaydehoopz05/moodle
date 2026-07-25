@@ -560,6 +560,34 @@ class _DashboardViewState extends State<DashboardView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
+                                  'Assignment: Programming Coursework. Deadline 01/08/2024, 23:59',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: moodlePurple,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'M236 - School of Computing - Programming Fundamentals',
+                                  style: TextStyle(fontSize: 14, color: moodleTextDark),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: moodleWhite,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: moodleBorder),
+                            ),
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
                                   'Assignment: Database draft (SQL). Deadline 03/08/2024, 14:00',
                                   style: TextStyle(
                                     fontSize: 15,
@@ -575,6 +603,7 @@ class _DashboardViewState extends State<DashboardView> {
                               ],
                             ),
                           ),
+
                         ],
                       ),
                     ),
