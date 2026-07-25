@@ -8,19 +8,19 @@ class CoursesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modules = [
-      _ModuleData(
+      const _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Programming Fundamentals',
         headerColor: moodlePurple,
       ),
-       _ModuleData(
+      const _ModuleData(
         code: "M234",
         school: "School of Computing",
         title: 'Algorithms and Structures',
         headerColor: moodlePurple,
       ),
-       _ModuleData(
+      const _ModuleData(
         code: "M234",
         school: "Database Systems",
         title: 'Programming Fundamentals',
@@ -264,7 +264,6 @@ class _ModuleData {
   final String title;
   final Color headerColor;
 
-}
 
 class _CourseCard extends StatelessWidget {
   final _ModuleData module;
@@ -282,6 +281,23 @@ class _CourseCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: moodleBorder),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Banner header.
+              AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Container(
+                  color: module.headerColor,
+                ),
+              ),
+              // Details.
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Text(
                       module.code,
                       style: const TextStyle(
@@ -307,5 +323,13 @@ class _CourseCard extends StatelessWidget {
                         color: moodlePurple,
                       ),
                     ),
-
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
