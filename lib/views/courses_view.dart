@@ -261,12 +261,15 @@ class _ModuleData {
   final String school;
   final String title;
   final Color headerColor;
+  final WidgetBuilder? destinationBuilder;
+
 
   const _ModuleData({
     required this.code,
     required this.school,
     required this.title,
     required this.headerColor,
+    required this.destinationBuilder,
   });
 }
 
