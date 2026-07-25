@@ -7,6 +7,7 @@ import 'package:moodle/views/courses_view.dart';
 import 'package:moodle/views/dashboard_view.dart';
 import 'package:moodle/views/profile_page_view.dart';
 import 'package:moodle/views/notification_view.dart';
+import 'package:moodle/views/login_view.dart';
 
 void main() {
   runApp(const MoodleApp());
@@ -36,6 +37,7 @@ class MoodleApp extends StatelessWidget {
         '/assessments': (context) => const AssessmentsView(),
         '/profile': (context) => const ProfilePageView(),
         '/notifications': (context) => const NotificationView(),
+        '/login': (context) => const LoginView(),
       },
       debugShowCheckedModeBanner: false,
     );
