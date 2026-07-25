@@ -328,7 +328,16 @@ class _CourseCard extends StatelessWidget {
             color: module.headerColor,
           ),
         ),
+        // Details.
+        const Padding(
+          padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
       ]
+          )
+        )
+        ]
       ))
     ),
   );
