@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
 import 'package:moodle/widgets/nav_drawer.dart';
 import 'package:moodle/constants.dart';
 
@@ -155,6 +154,7 @@ class ProfilePageView extends StatelessWidget {
                     const SizedBox(width: 16),
                   ],
           ),
+          drawer: const NavDrawer(),
         );
       },
     );
@@ -184,18 +184,18 @@ class _ProfileMenuButton extends StatelessWidget {
             Navigator.pushNamed(context, '/login');
             break;
         }
-      }, 
+      },
       itemBuilder: (context) => const [
         PopupMenuItem(
           value: _ProfileMenuAction.viewProfile,
           child: Text('View profile'),
         ),
-                PopupMenuDivider(),
+        PopupMenuDivider(),
         PopupMenuItem(
           value: _ProfileMenuAction.sign,
           child: Text('Sign out', style: TextStyle(color: Colors.red)),
         ),
-        ],
+      ],
       child: const CircleAvatar(
         radius: 18,
         backgroundColor: moodleGrayBg,
@@ -206,5 +206,5 @@ class _ProfileMenuButton extends StatelessWidget {
         ),
       ),
     );
-    }
+  }
 }

@@ -311,6 +311,7 @@ class CalendarView extends StatelessWidget {
 
 enum _ProfileMenuAction { viewProfile, sign }
 
+// ignore: unused_element
 class _ProfileMenuButton extends StatelessWidget {
   final BuildContext context;
   const _ProfileMenuButton({required this.context});
