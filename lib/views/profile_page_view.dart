@@ -150,7 +150,7 @@ class ProfilePageView extends StatelessWidget {
                       onPressed: () {},
                     ),
                     const SizedBox(width: 8),
-                    _ProfileMenuButton(context: context),
+                    __ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ],
           ),
@@ -161,15 +161,15 @@ class ProfilePageView extends StatelessWidget {
   }
 }
 
-enum _ProfileMenuAction { viewProfile, sign }
+enum _ProfileMenu { viewProfile, sign }
 
-class _ProfileMenuButton extends StatelessWidget {
+class __ProfileMenuButton extends StatelessWidget {
   final BuildContext context;
-  const _ProfileMenuButton({required this.context});
+  const __ProfileMenuButton({required this.context});
 
   @override
   Widget build(BuildContext _) {
-    return PopupMenuButton<_ProfileMenuAction>(
+    return PopupMenuButton<_ProfileMenu>(
       offset: const Offset(0, 44),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -177,22 +177,22 @@ class _ProfileMenuButton extends StatelessWidget {
       ),
       onSelected: (action) {
         switch (action) {
-          case _ProfileMenuAction.viewProfile:
+          case _ProfileMenu.viewProfile:
             Navigator.pushNamed(context, '/profile');
             break;
-          case _ProfileMenuAction.sign:
+          case _ProfileMenu.sign:
             Navigator.pushNamed(context, '/login');
             break;
         }
       },
       itemBuilder: (context) => const [
         PopupMenuItem(
-          value: _ProfileMenuAction.viewProfile,
+          value: _ProfileMenu.viewProfile,
           child: Text('View profile'),
         ),
         PopupMenuDivider(),
         PopupMenuItem(
-          value: _ProfileMenuAction.sign,
+          value: _ProfileMenu.sign,
           child: Text('Sign out', style: TextStyle(color: Colors.red)),
         ),
       ],
@@ -208,3 +208,4 @@ class _ProfileMenuButton extends StatelessWidget {
     );
   }
 }
+
