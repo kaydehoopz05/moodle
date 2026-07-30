@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Run the Application](#run-the-application)
+- [features](#features)
 - [Project Structure](#project-structure)
   
 ---
@@ -16,7 +16,18 @@ between a mobile view and a wider view by using LayoutBuilder, allowing the code
 regardless of screen size.
 
 ---
+## Features
+**Dashboard** - Contains a search bar, upcoming assignments, and filters
+**Courses** - Has a list of modules the user is enrolled in, displayed as cards
+**Responsive Pages** - Each page can switch between a compact layout and a wider one, which can contain a full navigation bar
+**Course detail page** - Page with course info, location, and the times of timetabled sessions
+**Calendar** - A calendar with the ability to show month by month, highlighting the current day 
+**Assessments** - Page dedicated to tracking the deadlines of assessments
+**Log In Page** - A basic log in page with basic authentication
+**Side navigation drawer** - Drawer navigation which works on all screens, in compact and wider
+layouts
 
+---
 ## Run the Application
 
 ```bash
