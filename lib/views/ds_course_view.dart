@@ -250,12 +250,12 @@ class DSCourseView extends StatelessWidget {
                             child: TabBarView(
                               children: [
                                 _CourseTab(isCompact: isCompact),
-                                const _PlaceholderTab(label: 'Module Info'),
-                                const _PlaceholderTab(
+                                const _TitleTab(label: 'Module Info'),
+                                const _TitleTab(
                                     label: 'Assessment Information (AIR)'),
-                                const _PlaceholderTab(label: 'Reading Lists'),
-                                const _PlaceholderTab(label: 'Grades'),
-                                const _PlaceholderTab(label: 'More'),
+                                const _TitleTab(label: 'Reading Lists'),
+                                const _TitleTab(label: 'Grades'),
+                                const _TitleTab(label: 'More'),
                               ],
                             ),
                           ),
@@ -273,9 +273,9 @@ class DSCourseView extends StatelessWidget {
   }
 }
 
-class _PlaceholderTab extends StatelessWidget {
+class _TitleTab extends StatelessWidget {
   final String label;
-  const _PlaceholderTab({required this.label});
+  const _TitleTab({required this.label});
 
   @override
   Widget build(BuildContext context) {
