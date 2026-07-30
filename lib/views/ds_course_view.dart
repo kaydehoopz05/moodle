@@ -250,7 +250,7 @@ class DSCourseView extends StatelessWidget {
                             child: TabBarView(
                               children: [
                                 _CourseTab(isCompact: isCompact),
-                                const _TitleTab(label: 'Module Info'),
+                                _ModuleInfoTab(isCompact: isCompact),
                                 const _TitleTab(
                                     label: 'Assessment Information (AIR)'),
                                 const _TitleTab(label: 'Reading Lists'),
@@ -355,6 +355,36 @@ class _CourseTabState extends State<_CourseTab> {
       ),
     );
   }
+}
+
+// ignore: unused_element
+class _ModuleInfoTab extends StatefulWidget {
+  final bool isCompact;
+  const _ModuleInfoTab({required this.isCompact});
+
+  @override
+  _ModuleInfoTabState createState() => _ModuleInfoTabState();
+}
+
+class _ModuleInfoTabState extends State<_CourseTab> {
+  bool _sectionExpanded = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return const SingleChildScrollView(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              ]
+              )
+        ]
+      )
+      );
+
+}
 }
 
 class _InfoRow extends StatelessWidget {
