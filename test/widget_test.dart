@@ -28,7 +28,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Verify Courses page contains course and module information
-    expect(find.text('Computer Science 101'), findsOneWidget);
-    expect(find.text('Programming Fundamentals'), findsOneWidget);
+    expect(find.text('Database Systems'), findsOneWidget);
+    expect(find.text('Algorithms and Structures'), findsOneWidget);
   });
 }
