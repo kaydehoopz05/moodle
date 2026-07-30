@@ -250,7 +250,7 @@ class DSCourseView extends StatelessWidget {
                             child: TabBarView(
                               children: [
                                 _CourseTab(isCompact: isCompact),
-                                _ModuleInfoTab(isCompact: isCompact),
+                                const _TitleTab(label: 'Module Info'),
                                 const _TitleTab(
                                     label: 'Assessment Information (AIR)'),
                                 const _TitleTab(label: 'Reading Lists'),
