@@ -52,23 +52,25 @@ flutter run -d chrome
 
 ## Project Structure
 
+```
 moodle/
 ├── lib/
-│   ├── main.dart                  # Application entry point, route table, and themes
-│   ├── constants.dart              # Colors and style constants
+│   ├── main.dart                  # App entry point, theming, and route table
+│   ├── constants.dart              # Shared colors and style constants
 │   ├── widgets/
-│   │   └── nav_drawer.dart         # Side navigation drawer
+│   │   └── nav_drawer.dart         # Shared side navigation drawer
 │   └── views/
 │       ├── dashboard_view.dart     # Home dashboard
-│       ├── courses_view.dart       # Enrolled modules
-│       ├── ds_course_view.dart     # Course detail page
+│       ├── courses_view.dart       # Enrolled modules list
+│       ├── ds_course_view.dart     # Individual course detail page
 │       ├── calendar_view.dart      # Calendar view
 │       ├── assessments_view.dart   # Assessments overview
-│       ├── notification_view.dart  # Notifications page
+│       ├── notification_view.dart  # Notifications
 │       ├── profile_page_view.dart  # User profile
-│       └── login_view.dart         # Login screen for site
+│       └── login_view.dart         # Login screen
 ├── test/
 │   └── widget_test.dart
-├── web/                            
-├── images/                         
+├── web/                            # Web build assets (icons, manifest, index.html)
+├── images/                         # App assets (logo, setup screenshots)
 └── pubspec.yaml
+```
