@@ -75,3 +75,18 @@ moodle/
 ├── images/                         # App assets (logo, setup screenshots)
 └── pubspec.yaml
 ```
+---
+
+## Routes
+ 
+Defined in `main.dart`:
+
+| Route              | Screen               |
+|--------------------|----------------------|
+| `/`                | `DashboardView`      |
+| `/calendar`        | `CalendarView`       |
+| `/courses`         | `CoursesView`        |
+| `/assessments`     | `AssessmentsView`    |
+| `/profile`         | `ProfilePageView`    |
+| `/notifications`   | `NotificationView`   |
+| `/login`           | `LoginView`          |
