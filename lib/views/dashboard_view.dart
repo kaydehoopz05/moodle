@@ -582,36 +582,6 @@ class _DashboardViewState extends State<DashboardView> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  Card(
-                    color: moodleWhite,
-                    elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      side: BorderSide(color: moodleBorder),
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                    child: Padding(
-                      padding: cardPadding,
-                      child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Feature Placeholder 2',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: moodlePurple,
-                            ),
-                          ),
-                          SizedBox(height: 12),
-                          Text(
-                            'This is a placeholder block.',
-                            style: TextStyle(fontSize: 14, color: moodleTextMuted),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
