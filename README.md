@@ -8,6 +8,7 @@
 - [features](#features)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
+- [Routes](#routes)
   
 ---
 ## Overview
