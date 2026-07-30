@@ -10,7 +10,10 @@
   
 ---
 ## Overview
-Functional side navigation drawer
+This project is based on the core screens of moodle (dashboard, course info, assessments,
+calendar, profile, and notifications pages), built as a Flutter app. The layout is adaptable
+between a mobile view and a wider view by using LayoutBuilder, allowing the code to work 
+regardless of screen size.
 
 ---
 
