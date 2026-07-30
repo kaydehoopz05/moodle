@@ -121,6 +121,25 @@ class LoginView extends StatelessWidget {
           ),
         ],
       ),
+      drawer: const NavDrawer(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Login Page',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: const Text('Login'),
+            ),
+          ],
+        ),
+      )
       );
   }
 }
