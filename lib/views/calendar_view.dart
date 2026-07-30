@@ -119,20 +119,7 @@ class CalendarView extends StatelessWidget {
             ),
             actions: isCompact
                 ? [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: moodleGrayBg,
-                        foregroundColor: moodlePurple,
-                        child: Text(
-                          'KD',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                        ),
-                      ),
-                    ),
+                    _ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ]
                 : [
@@ -145,20 +132,7 @@ class CalendarView extends StatelessWidget {
                       onPressed: () {},
                     ),
                     const SizedBox(width: 8),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                      child: const CircleAvatar(
-                        radius: 18,
-                        backgroundColor: moodleGrayBg,
-                        foregroundColor: moodlePurple,
-                        child: Text(
-                          'YH',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                        ),
-                      ),
-                    ),
+                    _ProfileMenuButton(context: context),
                     const SizedBox(width: 16),
                   ],
           ),
@@ -311,10 +285,9 @@ class CalendarView extends StatelessWidget {
 
 enum _ProfileMenu { viewProfile, sign }
 
-// ignore: unused_element
-class __ProfileMenuButton extends StatelessWidget {
+class _ProfileMenuButton extends StatelessWidget {
   final BuildContext context;
-  const __ProfileMenuButton({required this.context});
+  const _ProfileMenuButton({required this.context});
 
   @override
   Widget build(BuildContext _) {
@@ -339,7 +312,7 @@ class __ProfileMenuButton extends StatelessWidget {
           value: _ProfileMenu.viewProfile,
           child: Text('Profile'),
         ),
-                PopupMenuDivider(),
+        PopupMenuDivider(),
         PopupMenuItem(
           value: _ProfileMenu.sign,
           child: Text('Sign out', style: TextStyle(color: Colors.red)),
