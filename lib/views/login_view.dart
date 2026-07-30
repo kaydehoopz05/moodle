@@ -9,8 +9,23 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            width: 68,
+            height: 68,
+            decoration: BoxDecoration(
+              color: moodleGrayBg,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Image.asset(
+              'images/moodle_logo.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
