@@ -6,6 +6,7 @@
 
 - [Overview](#overview)
 - [features](#features)
+- [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
   
 ---
@@ -28,10 +29,24 @@ regardless of screen size.
 layouts
 
 ---
-## Run the Application
+## Getting Started
 
+### Prerequisites
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (Dart SDK `>=2.17.0 <4.0.0`, as set in `pubspec.yaml`)
+- A configured target: Chrome (web), an emulator, or a physical device
+
+---
+### Installation
+ 
 ```bash
+git clone https://github.com/kaydehoopz05/moodle.git
+cd moodle
 flutter pub get
+```
+ 
+### Run
+ 
+```bash
 flutter run -d chrome
 ```
 
