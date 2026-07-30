@@ -1,15 +1,15 @@
 # Moodle — Flutter Coursework
 
-> **A rendition of Portsmouth's moodle website.**
+> **A recreation of Portsmouth's moodle website, built as university coursework.**
 
 ## Table of Contents
 
-- [Highlights](#highlights)
+- [Overview](#overview)
 - [Run the Application](#run-the-application)
 - [Project Structure](#project-structure)
   
 ---
-## Highlights
+## Overview
 Functional side navigation drawer
 
 ---
