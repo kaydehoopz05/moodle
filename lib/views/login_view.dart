@@ -24,6 +24,24 @@ class LoginView extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
+          const SizedBox(height: 40),
+        const Text('Log in to access your moodle',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        )),
+        const SizedBox(height: 8),
+        const TextField(
+          decoration: InputDecoration(
+            labelText: 'University Email',
+            border: OutlineInputBorder(),
+          )),
+          const TextField(
+            decoration: InputDecoration(
+              labelText: 'Password',
+              border: OutlineInputBorder(),
+            ),
+          ),
         ],
       ),
     );
