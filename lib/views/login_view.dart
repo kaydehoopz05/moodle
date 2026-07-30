@@ -47,7 +47,14 @@ class LoginView extends StatelessWidget {
             width: 160,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DashboardView(),
+                  ),
+                );
+              },
               child: const Text('Login',
               style: TextStyle(
                 color: moodleDarkPurple
