@@ -219,6 +219,35 @@ class ProfilePageView extends StatelessWidget {
                         ),
                     ],
                   ),
+                  const SizedBox(height: 24),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: isCompact ? 42 : 52,
+                        backgroundColor: moodleGrayBg,
+                        foregroundColor: moodlePurple,
+                        child: Text(
+                          'KD',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: isCompact ? 24 : 30,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Flexible(
+                        child: Text(
+                          'Keani Derrick',
+                          style: TextStyle(
+                            fontSize: isCompact ? 26 : 34,
+                            fontWeight: FontWeight.bold,
+                            color: moodleTextDark,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
