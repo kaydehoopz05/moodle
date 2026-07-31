@@ -30,5 +30,8 @@ void main() {
     // Verify Courses page contains course and module information
     expect(find.text('Database Systems'), findsOneWidget);
     expect(find.text('Algorithms and Structures'), findsOneWidget);
+    expect(find.text('Programming Fundamentals'), findsOneWidget);
+    expect(find.text('Software Engineering'), findsOneWidget);
+    expect(find.text('Operating Systems'), findsOneWidget);
   });
 }
