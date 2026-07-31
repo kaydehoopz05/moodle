@@ -155,6 +155,74 @@ class ProfilePageView extends StatelessWidget {
                   ],
           ),
           drawer: const NavDrawer(),
+          body: Container(
+            color: moodleBg,
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(
+                horizontal: isCompact ? 16.0 : 32.0,
+                vertical: 20.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacementNamed(context, '/');
+                            },
+                            child: const Text(
+                              'Dashboard',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: moodlePurple,
+                              ),
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 6),
+                            child: Text(
+                              '/',
+                              style: TextStyle(fontSize: 14, color: moodleTextMuted),
+                            ),
+                          ),
+                          const Text(
+                            'Profile',
+                            style: TextStyle(fontSize: 14, color: moodleTextMuted),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      if (!isCompact)
+                        OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: moodlePurple,
+                            foregroundColor: moodleWhite,
+                            side: const BorderSide(color: moodlePurple),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 14,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                          ),
+                          child: const Text(
+                            'Reset page to default',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         );
       },
     );
@@ -208,4 +276,3 @@ class __ProfileMenuButton extends StatelessWidget {
     );
   }
 }
-
