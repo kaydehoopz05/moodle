@@ -78,9 +78,12 @@ class NavDrawer extends StatelessWidget {
             ),
                         _DrawerItem(
               icon: Icons.grade_outlined,
-              label: 'Private files',
+              label: 'My Assessments',
               onTap: () {
                 Navigator.pop(context);
+                if (!isCourses) {
+                  Navigator.pushReplacementNamed(context, '/assessments');
+                }
               },
             ),
             _DrawerItem(
