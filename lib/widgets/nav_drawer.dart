@@ -65,18 +65,18 @@ class NavDrawer extends StatelessWidget {
                 }
               },
             ),
-                        _DrawerItem(
-              icon: Icons.calendar_month_outlined,
-              label: 'Calendar',
-              selected: isCalendar,
+            _DrawerItem(
+              icon: Icons.school_outlined,
+              label: 'My courses',
+              selected: isCourses,
               onTap: () {
                 Navigator.pop(context);
-                if (!isCalendar) {
-                  Navigator.pushReplacementNamed(context, '/calendar');
+                if (!isCourses) {
+                  Navigator.pushReplacementNamed(context, '/courses');
                 }
               },
             ),
-                        _DrawerItem(
+                                    _DrawerItem(
               icon: Icons.grade_outlined,
               label: 'My Assessments',
               onTap: () {
@@ -87,13 +87,13 @@ class NavDrawer extends StatelessWidget {
               },
             ),
             _DrawerItem(
-              icon: Icons.school_outlined,
-              label: 'My courses',
-              selected: isCourses,
+              icon: Icons.calendar_month_outlined,
+              label: 'Calendar',
+              selected: isCalendar,
               onTap: () {
                 Navigator.pop(context);
-                if (!isCourses) {
-                  Navigator.pushReplacementNamed(context, '/courses');
+                if (!isCalendar) {
+                  Navigator.pushReplacementNamed(context, '/calendar');
                 }
               },
             ),
