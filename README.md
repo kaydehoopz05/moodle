@@ -25,7 +25,7 @@ regardless of screen size.
 **Course detail page** - Page with course info, location, and the times of timetabled sessions
 **Calendar** - A calendar with the ability to show month by month, highlighting the current day 
 **Assessments** - Page dedicated to tracking the deadlines of assessments
-**Log In Page** - A basic log in page with basic authentication
+**Log In Page** - A basic log in page with email and password authentication
 **Side navigation drawer** - Drawer navigation which works on all screens, in compact and wider
 layouts
 
