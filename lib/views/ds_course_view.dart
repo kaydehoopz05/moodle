@@ -250,9 +250,8 @@ class DSCourseView extends StatelessWidget {
                             child: TabBarView(
                               children: [
                                 _CourseTab(isCompact: isCompact),
-                                const _TitleTab(label: 'Module Info'),
-                                const _TitleTab(
-                                    label: 'Assessment Information (AIR)'),
+                                _ModuleInfoTab(isCompact: isCompact),
+                                _AssessmentInfoTab(isCompact: isCompact),
                                 const _TitleTab(label: 'Reading Lists'),
                                 const _TitleTab(label: 'Grades'),
                                 const _TitleTab(label: 'More'),
@@ -357,34 +356,167 @@ class _CourseTabState extends State<_CourseTab> {
   }
 }
 
-// ignore: unused_element
-class _ModuleInfoTab extends StatefulWidget {
+class _ModuleInfoTab extends StatelessWidget {
   final bool isCompact;
   const _ModuleInfoTab({required this.isCompact});
 
   @override
-  _ModuleInfoTabState createState() => _ModuleInfoTabState();
-}
-
-class _ModuleInfoTabState extends State<_CourseTab> {
-  bool _sectionExpanded = true;
-
-  @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            'Module Overview',
+            style: TextStyle(
+              fontSize: isCompact ? 20 : 24,
+              fontWeight: FontWeight.bold,
+              color: moodlePurple,
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'We will refer to 3 keywords throughout this module:',
+            style: TextStyle(fontSize: 14, color: moodleTextDark, height: 1.5),
+          ),
+          const SizedBox(height: 16),
+          const _WordDefined(
+            term: 'Efficiency',
+            definition: 'Consider the consumption of time & space, with analysis before you code.',
+          ),
+          const SizedBox(height: 12),
+          const _WordDefined(
+            term: 'Trade-off/Cost',
+            definition: 'Some structures and algorithms are better for your application at a cost.',
+          ),
+          const SizedBox(height: 12),
+          const _WordDefined(
+            term: 'Tools',
+            definition: 'Avoid reinventing the wheels.',
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'This module is delivered in blended teaching this year, including lectures, tutorials and computer-based practical sessions.',
+            style: TextStyle(fontSize: 14, color: moodleTextDark, height: 1.5),
+          ),
+          const SizedBox(height: 16),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ]
-              )
-        ]
-      )
-      );
-
+              const Text(
+                'Module Leader: ',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: moodleTextDark,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: const Text(
+                  'Dr James Johnson',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: moodlePurple,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
+
+class _WordDefined extends StatelessWidget {
+  final String term;
+  final String definition;
+
+  const _WordDefined({required this.term, required this.definition});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        style: const TextStyle(fontSize: 14, color: moodleTextDark, height: 1.5),
+        children: [
+          TextSpan(
+            text: '$term: ',
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          TextSpan(text: definition),
+        ],
+      ),
+    );
+  }
+}
+
+class _AssessmentInfoTab extends StatelessWidget {
+  final bool isCompact;
+  const _AssessmentInfoTab({required this.isCompact});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Assessment Information',
+            style: TextStyle(
+              fontSize: isCompact ? 18 : 24,
+              fontWeight: FontWeight.bold,
+              color: moodlePurple,
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'Your due dates, submission links, feedback dates and key guidance for this module '
+            'are all in one place. Open any assessment below to see the details.',
+            style: TextStyle(fontSize: 14, color: moodleTextDark, height: 1.5),
+          ),
+          const SizedBox(height: 8),
+          RichText(
+            text: const TextSpan(
+              style: TextStyle(fontSize: 14, color: moodleTextDark, height: 1.5),
+              children: [
+                TextSpan(
+                  text: 'Note: ',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: 'Only credit bearing assessments are shown on this page. You can see '
+                      'all assessments on the My Assessments page linked at the top of Moodle '
+                      'or in the module itself.',
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+            decoration: BoxDecoration(
+              color: moodleGrayBg,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: const Text(
+              'Nothing to display',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: moodleTextDark,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _InfoRow extends StatelessWidget {
