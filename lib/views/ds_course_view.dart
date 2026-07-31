@@ -252,9 +252,6 @@ class DSCourseView extends StatelessWidget {
                                 _CourseTab(isCompact: isCompact),
                                 _ModuleInfoTab(isCompact: isCompact),
                                 _AssessmentInfoTab(isCompact: isCompact),
-                                const _TitleTab(label: 'Reading Lists'),
-                                const _TitleTab(label: 'Grades'),
-                                const _TitleTab(label: 'More'),
                               ],
                             ),
                           ),
@@ -268,21 +265,6 @@ class DSCourseView extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class _TitleTab extends StatelessWidget {
-  final String label;
-  const _TitleTab({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        '$label content coming soon.',
-        style: const TextStyle(fontSize: 14, color: moodleTextMuted),
-      ),
     );
   }
 }
