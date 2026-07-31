@@ -71,6 +71,7 @@ moodle/
 │       └── login_view.dart         # Login screen
 ├── test/
 │   └── widget_test.dart
+|   ├── login_view_test.dart         # Tests for the login screen
 ├── web/                            # Web build assets (icons, manifest, index.html)
 ├── images/                         # App assets (logo, setup screenshots)
 └── pubspec.yaml
