@@ -32,6 +32,20 @@ class CoursesView extends StatelessWidget {
         headerColor: moodlePurple,
         destinationBuilder: null,
       ),
+      const _ModuleData(
+        code: "M237",
+        school: "School of Computing",
+        title: 'Software Engineering',
+        headerColor: moodlePurple,
+        destinationBuilder: null,
+      ),
+      const _ModuleData(
+        code: "M238",
+        school: "School of Computing",
+        title: 'Operating Systems',
+        headerColor: moodlePurple,
+        destinationBuilder: null,
+      )
     ];
 
     return LayoutBuilder(
